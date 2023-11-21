@@ -1,0 +1,646 @@
+
+
+
+78K0R Linker W1.80                            Date:21 Nov 2023 Page:   1
+
+Command:   -yD:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device\
+           RL78\Devicefile -_msgoff -oDefaultBuild\LED_R5F10BGG.lmf -gi0
+           0000000000000000000h -go04h,1FE00h,0 -gb0FFFFEAH -mi0 -s -pDe
+           faultBuild\LED_R5F10BGG.map D:\Program Files (x86)\Renesas El
+           ectronics\CS+\CACX\CA78K0R\V1.72\lib78k0r\s0rll.rel DefaultBu
+           ild\r_main.rel DefaultBuild\r_systeminit.rel DefaultBuild\r_c
+           g_cgc.rel DefaultBuild\r_cg_cgc_user.rel DefaultBuild\r_cg_po
+           rt.rel DefaultBuild\r_cg_port_user.rel DefaultBuild\r_cg_wdt.
+           rel DefaultBuild\r_cg_wdt_user.rel DefaultBuild\r_cg_timer.re
+           l DefaultBuild\r_cg_timer_user.rel DefaultBuild\r_cg_serial.r
+           el DefaultBuild\r_cg_serial_user.rel DefaultBuild\r_rl78_can_
+           drv.rel DefaultBuild\tk_sample_drv_cfg.rel DefaultBuild\HDL_C
+           PU_Time.rel DefaultBuild\tk_funcs.rel DefaultBuild\ccan.rel D
+           efaultBuild\CPSQ8100.rel DefaultBuild\HDL_Uart.rel -bcl78m -b
+           cl78mf -iD:\Program Files (x86)\Renesas Electronics\CS+\CACX\
+           CA78K0R\V1.72\lib78k0r
+Para-file:
+Out-file:  DefaultBuild\LED_R5F10BGG.lmf
+Map-file:  DefaultBuild\LED_R5F10BGG.map
+Direc-file:
+Directive:
+
+
+*** Link information ***
+
+    47 output segment(s)
+ 17F8H byte(s) real data
+  1558 symbol(s) defined
+
+
+*** Memory map ***
+
+
+  SPACE=REGULAR
+
+  MEMORY=ROM
+  BASE ADDRESS=00000H   SIZE=10000H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@VECT00                     00000H    00002H  CSEG AT
+                  @@VECT00 @cstart    00000H    00002H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  @cstart    00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_main     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_systeminit
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_cgc   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_cgc_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_port
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_port_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_wdt   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_wdt_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_timer
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_timer_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_serial
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_serial_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_rl78_can_drv
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  tk_sample_drv_cfg
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  HDL_CPU_Time
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  tk_funcs   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  ccan       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  CPSQ8100   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  HDL_Uart   00002H    00000H
+         @@RLINIT                     00002H    00000H  CSEG UNIT64KP
+                  @@RLINIT @cstart    00002H    00000H
+                  @@RLINIT r_main     00002H    00000H
+                  @@RLINIT r_systeminit
+                                      00002H    00000H
+                  @@RLINIT r_cg_cgc   00002H    00000H
+                  @@RLINIT r_cg_cgc_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_port
+                                      00002H    00000H
+                  @@RLINIT r_cg_port_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_wdt   00002H    00000H
+                  @@RLINIT r_cg_wdt_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_timer
+                                      00002H    00000H
+                  @@RLINIT r_cg_timer_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_serial
+                                      00002H    00000H
+                  @@RLINIT r_cg_serial_user
+                                      00002H    00000H
+                  @@RLINIT r_rl78_can_drv
+                                      00002H    00000H
+                  @@RLINIT tk_sample_drv_cfg
+                                      00002H    00000H
+                  @@RLINIT HDL_CPU_Time
+                                      00002H    00000H
+                  @@RLINIT tk_funcs   00002H    00000H
+                  @@RLINIT ccan       00002H    00000H
+                  @@RLINIT CPSQ8100   00002H    00000H
+                  @@RLINIT HDL_Uart   00002H    00000H
+                  @@RLINIT @rom       00002H    00000H
+         @@R_INIS                     00002H    00000H  CSEG UNIT64KP
+                  @@R_INIS @cstart    00002H    00000H
+                  @@R_INIS r_main     00002H    00000H
+                  @@R_INIS r_systeminit
+                                      00002H    00000H
+                  @@R_INIS r_cg_cgc   00002H    00000H
+                  @@R_INIS r_cg_cgc_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_port
+                                      00002H    00000H
+                  @@R_INIS r_cg_port_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_wdt   00002H    00000H
+                  @@R_INIS r_cg_wdt_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_timer
+                                      00002H    00000H
+                  @@R_INIS r_cg_timer_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_serial
+                                      00002H    00000H
+                  @@R_INIS r_cg_serial_user
+                                      00002H    00000H
+                  @@R_INIS r_rl78_can_drv
+                                      00002H    00000H
+                  @@R_INIS tk_sample_drv_cfg
+                                      00002H    00000H
+                  @@R_INIS HDL_CPU_Time
+                                      00002H    00000H
+                  @@R_INIS tk_funcs   00002H    00000H
+                  @@R_INIS ccan       00002H    00000H
+                  @@R_INIS CPSQ8100   00002H    00000H
+                  @@R_INIS HDL_Uart   00002H    00000H
+                  @@R_INIS @rom       00002H    00000H
+         @@CALT                       00002H    00000H  CSEG
+                  @@CALT   @cstart    00002H    00000H
+                  @@CALT   r_main     00002H    00000H
+                  @@CALT   r_systeminit
+                                      00002H    00000H
+                  @@CALT   r_cg_cgc   00002H    00000H
+                  @@CALT   r_cg_cgc_user
+                                      00002H    00000H
+                  @@CALT   r_cg_port
+                                      00002H    00000H
+                  @@CALT   r_cg_port_user
+                                      00002H    00000H
+                  @@CALT   r_cg_wdt   00002H    00000H
+                  @@CALT   r_cg_wdt_user
+                                      00002H    00000H
+                  @@CALT   r_cg_timer
+                                      00002H    00000H
+                  @@CALT   r_cg_timer_user
+                                      00002H    00000H
+                  @@CALT   r_cg_serial
+                                      00002H    00000H
+                  @@CALT   r_cg_serial_user
+                                      00002H    00000H
+                  @@CALT   r_rl78_can_drv
+                                      00002H    00000H
+                  @@CALT   tk_sample_drv_cfg
+                                      00002H    00000H
+                  @@CALT   HDL_CPU_Time
+                                      00002H    00000H
+                  @@CALT   tk_funcs   00002H    00000H
+                  @@CALT   ccan       00002H    00000H
+                  @@CALT   CPSQ8100   00002H    00000H
+                  @@CALT   HDL_Uart   00002H    00000H
+         ??NMIROM                     00002H    00002H  CSEG
+         @@VECT04                     00004H    00002H  CSEG AT
+                  @@VECT04 r_cg_wdt_user
+                                      00004H    00002H
+* gap *                               00006H    00010H
+         @@VECT16                     00016H    00002H  CSEG AT
+                  @@VECT16 r_cg_serial_user
+                                      00016H    00002H
+* gap *                               00018H    00014H
+         @@VECT2C                     0002CH    00002H  CSEG AT
+                  @@VECT2C r_cg_timer_user
+                                      0002CH    00002H
+         @@R_INIT                     0002EH    0001AH  CSEG UNIT64KP
+                  @@R_INIT @cstart    0002EH    00000H
+                  @@R_INIT r_main     0002EH    00000H
+                  @@R_INIT r_systeminit
+                                      0002EH    00000H
+                  @@R_INIT r_cg_cgc   0002EH    00000H
+                  @@R_INIT r_cg_cgc_user
+                                      0002EH    00000H
+                  @@R_INIT r_cg_port
+                                      0002EH    00000H
+                  @@R_INIT r_cg_port_user
+                                      0002EH    00000H
+                  @@R_INIT r_cg_wdt   0002EH    00000H
+                  @@R_INIT r_cg_wdt_user
+                                      0002EH    00000H
+                  @@R_INIT r_cg_timer
+                                      0002EH    00000H
+                  @@R_INIT r_cg_timer_user
+                                      0002EH    00000H
+                  @@R_INIT r_cg_serial
+                                      0002EH    00000H
+                  @@R_INIT r_cg_serial_user
+                                      0002EH    00000H
+                  @@R_INIT r_rl78_can_drv
+                                      0002EH    00000H
+                  @@R_INIT tk_sample_drv_cfg
+                                      0002EH    00000H
+                  @@R_INIT HDL_CPU_Time
+                                      0002EH    00000H
+                  @@R_INIT tk_funcs   0002EH    00000H
+                  @@R_INIT ccan       0002EH    00000H
+                  @@R_INIT CPSQ8100   0002EH    0001AH
+                  @@R_INIT HDL_Uart   00048H    00000H
+                  @@R_INIT @rom       00048H    00000H
+* gap *                               00048H    00078H
+         ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
+         @@CODE                       000C4H    00000H  CSEG BASE
+                  @@CODE   r_main     000C4H    00000H
+                  @@CODE   r_systeminit
+                                      000C4H    00000H
+                  @@CODE   r_cg_cgc   000C4H    00000H
+                  @@CODE   r_cg_cgc_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_port
+                                      000C4H    00000H
+                  @@CODE   r_cg_port_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_wdt   000C4H    00000H
+                  @@CODE   r_cg_wdt_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_timer
+                                      000C4H    00000H
+                  @@CODE   r_cg_timer_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_serial
+                                      000C4H    00000H
+                  @@CODE   r_cg_serial_user
+                                      000C4H    00000H
+                  @@CODE   r_rl78_can_drv
+                                      000C4H    00000H
+                  @@CODE   tk_sample_drv_cfg
+                                      000C4H    00000H
+                  @@CODE   HDL_CPU_Time
+                                      000C4H    00000H
+                  @@CODE   tk_funcs   000C4H    00000H
+                  @@CODE   ccan       000C4H    00000H
+                  @@CODE   CPSQ8100   000C4H    00000H
+                  @@CODE   HDL_Uart   000C4H    00000H
+         ?CSEGSI                      000C4H    0000AH  CSEG
+         ?OCDSTAD                     000CEH    0000AH  CSEG
+         @@LCODE                      000D8H    00101H  CSEG BASE
+                  @@LCODE  @cstart    000D8H    000ADH
+                  @@LCODE  @ladd      00185H    0000FH
+                  @@LCODE  @lsub      00194H    00012H
+                  @@LCODE  @lursh     001A6H    0001FH
+                  @@LCODE  @lband     001C5H    00014H
+         @@BASE                       001D9H    00076H  CSEG BASE
+                  @@BASE   r_main     001D9H    00000H
+                  @@BASE   r_systeminit
+                                      001D9H    00000H
+                  @@BASE   r_cg_cgc   001D9H    00000H
+                  @@BASE   r_cg_cgc_user
+                                      001D9H    00000H
+                  @@BASE   r_cg_port
+                                      001D9H    00000H
+                  @@BASE   r_cg_port_user
+                                      001D9H    00000H
+                  @@BASE   r_cg_wdt   001D9H    00000H
+                  @@BASE   r_cg_wdt_user
+                                      001D9H    00002H
+                  @@BASE   r_cg_timer
+                                      001DBH    00000H
+                  @@BASE   r_cg_timer_user
+                                      001DBH    00030H
+                  @@BASE   r_cg_serial
+                                      0020BH    00000H
+                  @@BASE   r_cg_serial_user
+                                      0020BH    00044H
+                  @@BASE   r_rl78_can_drv
+                                      0024FH    00000H
+                  @@BASE   tk_sample_drv_cfg
+                                      0024FH    00000H
+                  @@BASE   HDL_CPU_Time
+                                      0024FH    00000H
+                  @@BASE   tk_funcs   0024FH    00000H
+                  @@BASE   ccan       0024FH    00000H
+                  @@BASE   CPSQ8100   0024FH    00000H
+                  @@BASE   HDL_Uart   0024FH    00000H
+         @@CODEL                      0024FH    01115H  CSEG
+                  @@CODEL  r_main     0024FH    002C6H
+                  @@CODEL  r_systeminit
+                                      00515H    00061H
+                  @@CODEL  r_cg_cgc   00576H    000A6H
+                  @@CODEL  r_cg_cgc_user
+                                      0061CH    00005H
+                  @@CODEL  r_cg_port
+                                      00621H    00018H
+                  @@CODEL  r_cg_port_user
+                                      00639H    00000H
+                  @@CODEL  r_cg_wdt   00639H    00014H
+                  @@CODEL  r_cg_wdt_user
+                                      0064DH    00000H
+                  @@CODEL  r_cg_timer
+                                      0064DH    00092H
+                  @@CODEL  r_cg_timer_user
+                                      006DFH    00000H
+                  @@CODEL  r_cg_serial
+                                      006DFH    000D5H
+                  @@CODEL  r_cg_serial_user
+                                      007B4H    0001BH
+                  @@CODEL  r_rl78_can_drv
+                                      007CFH    005DBH
+                  @@CODEL  tk_sample_drv_cfg
+                                      00DAAH    00000H
+                  @@CODEL  HDL_CPU_Time
+                                      00DAAH    00030H
+                  @@CODEL  tk_funcs   00DDAH    0009AH
+                  @@CODEL  ccan       00E74H    00000H
+                  @@CODEL  CPSQ8100   00E74H    004F0H
+                  @@CODEL  HDL_Uart   01364H    00000H
+         @@LCODEL                     01364H    0050CH  CSEG
+                  @@LCODEL @stkinit   01364H    00044H
+                  @@LCODEL exit       013A8H    0001CH
+                  @@LCODEL memcpy_n   013C4H    0001AH
+                  @@LCODEL memset_n   013DEH    00019H
+                  @@LCODEL printf_n   013F7H    00479H
+* gap *                               01870H    00790H
+         @@CNST                       02000H    00024H  CSEG MIRRORP
+                  @@CNST   @cstart    02000H    00000H
+                  @@CNST   r_main     02000H    00008H
+                  @@CNST   r_systeminit
+                                      02008H    00000H
+                  @@CNST   r_cg_cgc   02008H    00000H
+                  @@CNST   r_cg_cgc_user
+                                      02008H    00000H
+                  @@CNST   r_cg_port
+                                      02008H    00000H
+                  @@CNST   r_cg_port_user
+                                      02008H    00000H
+                  @@CNST   r_cg_wdt   02008H    00000H
+                  @@CNST   r_cg_wdt_user
+                                      02008H    00000H
+                  @@CNST   r_cg_timer
+                                      02008H    00000H
+                  @@CNST   r_cg_timer_user
+                                      02008H    00000H
+                  @@CNST   r_cg_serial
+                                      02008H    00000H
+                  @@CNST   r_cg_serial_user
+                                      02008H    00000H
+                  @@CNST   r_rl78_can_drv
+                                      02008H    00000H
+                  @@CNST   tk_sample_drv_cfg
+                                      02008H    0001CH
+                  @@CNST   HDL_CPU_Time
+                                      02024H    00000H
+                  @@CNST   tk_funcs   02024H    00000H
+                  @@CNST   ccan       02024H    00000H
+                  @@CNST   CPSQ8100   02024H    00000H
+                  @@CNST   HDL_Uart   02024H    00000H
+* gap *                               02024H    0DFDCH
+
+  MEMORY=RAM
+  BASE ADDRESS=FDF00H   SIZE=02100H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@DATA                       FDF00H    0012EH  DSEG BASEP
+                  @@DATA   @cstart    FDF00H    000BAH
+                  @@DATA   r_main     FDFBAH    00000H
+                  @@DATA   r_systeminit
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_cgc   FDFBAH    00000H
+                  @@DATA   r_cg_cgc_user
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_port
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_port_user
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_wdt   FDFBAH    00000H
+                  @@DATA   r_cg_wdt_user
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_timer
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_timer_user
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_serial
+                                      FDFBAH    0000AH
+                  @@DATA   r_cg_serial_user
+                                      FDFC4H    00000H
+                  @@DATA   r_rl78_can_drv
+                                      FDFC4H    00000H
+                  @@DATA   tk_sample_drv_cfg
+                                      FDFC4H    00000H
+                  @@DATA   HDL_CPU_Time
+                                      FDFC4H    00002H
+                  @@DATA   tk_funcs   FDFC6H    00000H
+                  @@DATA   ccan       FDFC6H    00000H
+                  @@DATA   CPSQ8100   FDFC6H    00068H
+                  @@DATA   HDL_Uart   FE02EH    00000H
+                  @@DATA   @rom       FE02EH    00000H
+         @@INIT                       FE02EH    0001AH  DSEG BASEP
+                  @@INIT   @cstart    FE02EH    00000H
+                  @@INIT   r_main     FE02EH    00000H
+                  @@INIT   r_systeminit
+                                      FE02EH    00000H
+                  @@INIT   r_cg_cgc   FE02EH    00000H
+                  @@INIT   r_cg_cgc_user
+                                      FE02EH    00000H
+                  @@INIT   r_cg_port
+                                      FE02EH    00000H
+                  @@INIT   r_cg_port_user
+                                      FE02EH    00000H
+                  @@INIT   r_cg_wdt   FE02EH    00000H
+                  @@INIT   r_cg_wdt_user
+                                      FE02EH    00000H
+                  @@INIT   r_cg_timer
+                                      FE02EH    00000H
+                  @@INIT   r_cg_timer_user
+                                      FE02EH    00000H
+                  @@INIT   r_cg_serial
+                                      FE02EH    00000H
+                  @@INIT   r_cg_serial_user
+                                      FE02EH    00000H
+                  @@INIT   r_rl78_can_drv
+                                      FE02EH    00000H
+                  @@INIT   tk_sample_drv_cfg
+                                      FE02EH    00000H
+                  @@INIT   HDL_CPU_Time
+                                      FE02EH    00000H
+                  @@INIT   tk_funcs   FE02EH    00000H
+                  @@INIT   ccan       FE02EH    00000H
+                  @@INIT   CPSQ8100   FE02EH    0001AH
+                  @@INIT   HDL_Uart   FE048H    00000H
+                  @@INIT   @rom       FE048H    00000H
+         @@INIS                       FE048H    00000H  DSEG UNITP
+                  @@INIS   @cstart    FE048H    00000H
+                  @@INIS   r_main     FE048H    00000H
+                  @@INIS   r_systeminit
+                                      FE048H    00000H
+                  @@INIS   r_cg_cgc   FE048H    00000H
+                  @@INIS   r_cg_cgc_user
+                                      FE048H    00000H
+                  @@INIS   r_cg_port
+                                      FE048H    00000H
+                  @@INIS   r_cg_port_user
+                                      FE048H    00000H
+                  @@INIS   r_cg_wdt   FE048H    00000H
+                  @@INIS   r_cg_wdt_user
+                                      FE048H    00000H
+                  @@INIS   r_cg_timer
+                                      FE048H    00000H
+                  @@INIS   r_cg_timer_user
+                                      FE048H    00000H
+                  @@INIS   r_cg_serial
+                                      FE048H    00000H
+                  @@INIS   r_cg_serial_user
+                                      FE048H    00000H
+                  @@INIS   r_rl78_can_drv
+                                      FE048H    00000H
+                  @@INIS   tk_sample_drv_cfg
+                                      FE048H    00000H
+                  @@INIS   HDL_CPU_Time
+                                      FE048H    00000H
+                  @@INIS   tk_funcs   FE048H    00000H
+                  @@INIS   ccan       FE048H    00000H
+                  @@INIS   CPSQ8100   FE048H    00000H
+                  @@INIS   HDL_Uart   FE048H    00000H
+                  @@INIS   @rom       FE048H    00000H
+         @@DATS                       FE048H    00000H  DSEG UNITP
+                  @@DATS   @cstart    FE048H    00000H
+                  @@DATS   r_main     FE048H    00000H
+                  @@DATS   r_systeminit
+                                      FE048H    00000H
+                  @@DATS   r_cg_cgc   FE048H    00000H
+                  @@DATS   r_cg_cgc_user
+                                      FE048H    00000H
+                  @@DATS   r_cg_port
+                                      FE048H    00000H
+                  @@DATS   r_cg_port_user
+                                      FE048H    00000H
+                  @@DATS   r_cg_wdt   FE048H    00000H
+                  @@DATS   r_cg_wdt_user
+                                      FE048H    00000H
+                  @@DATS   r_cg_timer
+                                      FE048H    00000H
+                  @@DATS   r_cg_timer_user
+                                      FE048H    00000H
+                  @@DATS   r_cg_serial
+                                      FE048H    00000H
+                  @@DATS   r_cg_serial_user
+                                      FE048H    00000H
+                  @@DATS   r_rl78_can_drv
+                                      FE048H    00000H
+                  @@DATS   tk_sample_drv_cfg
+                                      FE048H    00000H
+                  @@DATS   HDL_CPU_Time
+                                      FE048H    00000H
+                  @@DATS   tk_funcs   FE048H    00000H
+                  @@DATS   ccan       FE048H    00000H
+                  @@DATS   CPSQ8100   FE048H    00000H
+                  @@DATS   HDL_Uart   FE048H    00000H
+                  @@DATS   @rom       FE048H    00000H
+         @@INITL                      FE048H    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FE048H    00000H
+                  @@INITL  r_main     FE048H    00000H
+                  @@INITL  r_systeminit
+                                      FE048H    00000H
+                  @@INITL  r_cg_cgc   FE048H    00000H
+                  @@INITL  r_cg_cgc_user
+                                      FE048H    00000H
+                  @@INITL  r_cg_port
+                                      FE048H    00000H
+                  @@INITL  r_cg_port_user
+                                      FE048H    00000H
+                  @@INITL  r_cg_wdt   FE048H    00000H
+                  @@INITL  r_cg_wdt_user
+                                      FE048H    00000H
+                  @@INITL  r_cg_timer
+                                      FE048H    00000H
+                  @@INITL  r_cg_timer_user
+                                      FE048H    00000H
+                  @@INITL  r_cg_serial
+                                      FE048H    00000H
+                  @@INITL  r_cg_serial_user
+                                      FE048H    00000H
+                  @@INITL  r_rl78_can_drv
+                                      FE048H    00000H
+                  @@INITL  tk_sample_drv_cfg
+                                      FE048H    00000H
+                  @@INITL  HDL_CPU_Time
+                                      FE048H    00000H
+                  @@INITL  tk_funcs   FE048H    00000H
+                  @@INITL  ccan       FE048H    00000H
+                  @@INITL  CPSQ8100   FE048H    00000H
+                  @@INITL  HDL_Uart   FE048H    00000H
+                  @@INITL  @rom       FE048H    00000H
+         @@DATAL                      FE048H    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FE048H    00000H
+                  @@DATAL  r_main     FE048H    00000H
+                  @@DATAL  r_systeminit
+                                      FE048H    00000H
+                  @@DATAL  r_cg_cgc   FE048H    00000H
+                  @@DATAL  r_cg_cgc_user
+                                      FE048H    00000H
+                  @@DATAL  r_cg_port
+                                      FE048H    00000H
+                  @@DATAL  r_cg_port_user
+                                      FE048H    00000H
+                  @@DATAL  r_cg_wdt   FE048H    00000H
+                  @@DATAL  r_cg_wdt_user
+                                      FE048H    00000H
+                  @@DATAL  r_cg_timer
+                                      FE048H    00000H
+                  @@DATAL  r_cg_timer_user
+                                      FE048H    00000H
+                  @@DATAL  r_cg_serial
+                                      FE048H    00000H
+                  @@DATAL  r_cg_serial_user
+                                      FE048H    00000H
+                  @@DATAL  r_rl78_can_drv
+                                      FE048H    00000H
+                  @@DATAL  tk_sample_drv_cfg
+                                      FE048H    00000H
+                  @@DATAL  HDL_CPU_Time
+                                      FE048H    00000H
+                  @@DATAL  tk_funcs   FE048H    00000H
+                  @@DATAL  ccan       FE048H    00000H
+                  @@DATAL  CPSQ8100   FE048H    00000H
+                  @@DATAL  HDL_Uart   FE048H    00000H
+                  @@DATAL  @rom       FE048H    00000H
+         @@BITS                       FE048H    00000H  BSEG
+                  @@BITS   @cstart    FE048H.0  00000H.0
+                  @@BITS   r_main     FE048H.0  00000H.0
+                  @@BITS   r_systeminit
+                                      FE048H.0  00000H.0
+                  @@BITS   r_cg_cgc   FE048H.0  00000H.0
+                  @@BITS   r_cg_cgc_user
+                                      FE048H.0  00000H.0
+                  @@BITS   r_cg_port
+                                      FE048H.0  00000H.0
+                  @@BITS   r_cg_port_user
+                                      FE048H.0  00000H.0
+                  @@BITS   r_cg_wdt   FE048H.0  00000H.0
+                  @@BITS   r_cg_wdt_user
+                                      FE048H.0  00000H.0
+                  @@BITS   r_cg_timer
+                                      FE048H.0  00000H.0
+                  @@BITS   r_cg_timer_user
+                                      FE048H.0  00000H.0
+                  @@BITS   r_cg_serial
+                                      FE048H.0  00000H.0
+                  @@BITS   r_cg_serial_user
+                                      FE048H.0  00000H.0
+                  @@BITS   r_rl78_can_drv
+                                      FE048H.0  00000H.0
+                  @@BITS   tk_sample_drv_cfg
+                                      FE048H.0  00000H.0
+                  @@BITS   HDL_CPU_Time
+                                      FE048H.0  00000H.0
+                  @@BITS   tk_funcs   FE048H.0  00000H.0
+                  @@BITS   ccan       FE048H.0  00000H.0
+                  @@BITS   CPSQ8100   FE048H.0  00000H.0
+                  @@BITS   HDL_Uart   FE048H.0  00000H.0
+* gap *                               FE048H    01E8CH
+         @@SEGREG                     FFED4H    00004H  DSEG AT
+                  @@SEGREG @SEGREG    FFED4H    00004H
+         @@RTARG0                     FFED8H    00008H  DSEG AT
+                  @@RTARG0 @RTARG0    FFED8H    00008H
+* gap *                               FFEE0H    00020H
+* gap (Not Free Area) *               FFF00H    00100H
+
+
+ Target chip : R5F10BGG
+ Device file : V1.11
+

@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "cstdint": "c",
+        "r_cg_userdefine.h": "c",
+        "stddef.h": "c",
+        "r_rl78_can_drv.h": "c",
+        "hdl_uart.h": "c",
+        "r_cg_timer.h": "c",
+        "r_cg_serial.h": "c"
+    }
+}
