@@ -29,7 +29,7 @@ Directive:
 *** Link information ***
 
     48 output segment(s)
- 232FH byte(s) real data
+ 2332H byte(s) real data
   2044 symbol(s) defined
 
 
@@ -367,39 +367,39 @@ Directive:
                   @@CNST   Screen     02024H    00000H
                   @@CNST   ccan       02024H    00000H
                   @@CNST   CPSQ8100   02024H    00000H
-         @@CODEL                      02024H    01AA6H  CSEG
-                  @@CODEL  r_main     02024H    0092EH
+         @@CODEL                      02024H    01AA9H  CSEG
+                  @@CODEL  r_main     02024H    00931H
                   @@CODEL  r_systeminit
-                                      02952H    00061H
-                  @@CODEL  r_cg_cgc   029B3H    000A6H
+                                      02955H    00061H
+                  @@CODEL  r_cg_cgc   029B6H    000A6H
                   @@CODEL  r_cg_cgc_user
-                                      02A59H    00005H
+                                      02A5CH    00005H
                   @@CODEL  r_cg_port
-                                      02A5EH    00018H
+                                      02A61H    00018H
                   @@CODEL  r_cg_port_user
-                                      02A76H    00000H
-                  @@CODEL  r_cg_wdt   02A76H    00014H
+                                      02A79H    00000H
+                  @@CODEL  r_cg_wdt   02A79H    00014H
                   @@CODEL  r_cg_wdt_user
-                                      02A8AH    00000H
+                                      02A8DH    00000H
                   @@CODEL  r_cg_timer
-                                      02A8AH    00092H
+                                      02A8DH    00092H
                   @@CODEL  r_cg_timer_user
-                                      02B1CH    00000H
+                                      02B1FH    00000H
                   @@CODEL  r_cg_serial
-                                      02B1CH    00130H
+                                      02B1FH    00130H
                   @@CODEL  r_cg_serial_user
-                                      02C4CH    00024H
+                                      02C4FH    00024H
                   @@CODEL  r_rl78_can_drv
-                                      02C70H    005DBH
+                                      02C73H    005DBH
                   @@CODEL  tk_sample_drv_cfg
-                                      0324BH    00000H
+                                      0324EH    00000H
                   @@CODEL  HDL_CPU_Time
-                                      0324BH    00030H
-                  @@CODEL  tk_funcs   0327BH    0009AH
-                  @@CODEL  Screen     03315H    002C5H
-                  @@CODEL  ccan       035DAH    00000H
-                  @@CODEL  CPSQ8100   035DAH    004F0H
-* gap *                               03ACAH    0C536H
+                                      0324EH    00030H
+                  @@CODEL  tk_funcs   0327EH    0009AH
+                  @@CODEL  Screen     03318H    002C5H
+                  @@CODEL  ccan       035DDH    00000H
+                  @@CODEL  CPSQ8100   035DDH    004F0H
+* gap *                               03ACDH    0C533H
 
   MEMORY=RAM
   BASE ADDRESS=FDF00H   SIZE=02100H

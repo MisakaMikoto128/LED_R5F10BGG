@@ -163,7 +163,7 @@ void main(void)
     /* Start user code. Do not edit comment generated here */
 
     HDL_CPU_Time_Init();
-
+    P3.1 = 0; //CPSQ8100 INT Enable
     CAN_Init();
     Uart_Init(COM1, 115200, 8, 1, 0);
 
