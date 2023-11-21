@@ -1,30 +1,30 @@
 /***********************************************************************************************************************
-* DISCLAIMER
-* This software is supplied by Renesas Electronics Corporation and is only intended for use with Renesas products.
-* No other uses are authorized. This software is owned by Renesas Electronics Corporation and is protected under all
-* applicable laws, including copyright laws. 
-* THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIES REGARDING THIS SOFTWARE, WHETHER EXPRESS, IMPLIED
-* OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-* NON-INFRINGEMENT.  ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY
-* LAW, NEITHER RENESAS ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE FOR ANY DIRECT,
-* INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR
-* ITS AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-* Renesas reserves the right, without notice, to make changes to this software and to discontinue the availability 
-* of this software. By using this software, you agree to the additional terms and conditions found by accessing the 
-* following link:
-* http://www.renesas.com/disclaimer
-*
-* Copyright (C) 2012, 2021 Renesas Electronics Corporation. All rights reserved.
-***********************************************************************************************************************/
+ * DISCLAIMER
+ * This software is supplied by Renesas Electronics Corporation and is only intended for use with Renesas products.
+ * No other uses are authorized. This software is owned by Renesas Electronics Corporation and is protected under all
+ * applicable laws, including copyright laws.
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIES REGARDING THIS SOFTWARE, WHETHER EXPRESS, IMPLIED
+ * OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT.  ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY
+ * LAW, NEITHER RENESAS ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR
+ * ITS AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ * Renesas reserves the right, without notice, to make changes to this software and to discontinue the availability
+ * of this software. By using this software, you agree to the additional terms and conditions found by accessing the
+ * following link:
+ * http://www.renesas.com/disclaimer
+ *
+ * Copyright (C) 2012, 2021 Renesas Electronics Corporation. All rights reserved.
+ ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
-* File Name    : r_main.c
-* Version      : CodeGenerator for RL78/F13 V2.03.07.02 [08 Nov 2021]
-* Device(s)    : R5F10BGG
-* Tool-Chain   : CA78K0R
-* Description  : This file implements main function.
-* Creation Date: 2023/11/21
-***********************************************************************************************************************/
+ * File Name    : r_main.c
+ * Version      : CodeGenerator for RL78/F13 V2.03.07.02 [08 Nov 2021]
+ * Device(s)    : R5F10BGG
+ * Tool-Chain   : CA78K0R
+ * Description  : This file implements main function.
+ * Creation Date: 2023/11/21
+ ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
 Pragma directive
@@ -65,51 +65,86 @@ Global variables and functions
 void R_MAIN_UserInit(void);
 
 /***********************************************************************************************************************
-* Function Name: main
-* Description  : This function implements main function.
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
+ * Function Name: main
+ * Description  : This function implements main function.
+ * Arguments    : None
+ * Return Value : None
+ ***********************************************************************************************************************/
 void main(void)
 {
     PeriodREC_t sec_1 = 0;
     PeriodREC_t sec_2 = 0;
     Can_RtnType canRet = CAN_RTN_OK;
     can_frame_t canRevFrame;
+    FDCAN_TxHeaderTypeDef txHeader;
+    FDCAN_RxHeaderTypeDef rxHeader;
+    uint8_t rxData[32];
+    uint32_t comReadLen = 0;
     R_MAIN_UserInit();
     /* Start user code. Do not edit comment generated here */
-    printf("Ya Ya!");
     CAN_Init();
+    Uart_Init(COM1, 115200, 8, 1, 0);
 
     while (1U)
     {
+        // if (period_query_user(&sec_1, 500) != 0)
+        // {
+        //     P8 .5 = ~P8 .5;
+        //     printf("Ya Ya!");
+        //     tk_can_send(1,1,2,3,4,5,5);
+        // }
+
+        // if (period_query_user(&sec_2, 2000) != 0)
+        // {
+        //     P8 .4 = 0;
+        // }
+
+        // canRet = R_CAN_ReadRxFIFO(0, &canRevFrame);
+        // if (canRet != CAN_RTN_BUFFER_EMPTY)
+        // {
+        //     P8 .4 = 1;
+        //     R_CAN_TrmByTxBuf(CAN_CH0, CAN_TXBUF0, &canRevFrame);
+        // }
+
+        if (CAN_Read(&rxHeader) == HAL_OK)
+        {
+            P8 .4 = 1;
+            CAN_Write(&txHeader, rxHeader.Data);
+        }
+
         if (period_query_user(&sec_1, 500) != 0)
         {
             P8 .5 = ~P8 .5;
-            // printf("Ya Ya!");
-            // tk_can_send(1,1,2,3,4,5,5);
+            Uart_Write(COM1, (uint8_t*)"Ya Ya!", 6);
+            txHeader.DataLength = 3;
+            txHeader.Identifier = 0x123;
+            txHeader.IdType = FDCAN_STANDARD_ID;
+            txHeader.TxFrameType = FDCAN_DATA_FRAME;
+            CAN_Write(&txHeader, (uint8_t*)"Ya Ya!");
         }
+
         if (period_query_user(&sec_2, 2000) != 0)
         {
             P8 .4 = 0;
         }
-        canRet = R_CAN_ReadRxFIFO(0, &canRevFrame);
-        if (canRet != CAN_RTN_BUFFER_EMPTY)
+
+        if(Uart_AvailableBytes(COM1) > 4)
         {
-            P8 .4 = 1;
-            R_CAN_TrmByTxBuf(CAN_CH0, CAN_TXBUF0, &canRevFrame);
+            comReadLen = Uart_Read(COM1, rxData, 64);
+            Uart_Write(COM1, rxData, comReadLen);
         }
+        
         R_WDT_Restart();
     }
     /* End user code. Do not edit comment generated here */
 }
 
 /***********************************************************************************************************************
-* Function Name: R_MAIN_UserInit
-* Description  : This function adds user code before implementing main function.
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
+ * Function Name: R_MAIN_UserInit
+ * Description  : This function adds user code before implementing main function.
+ * Arguments    : None
+ * Return Value : None
+ ***********************************************************************************************************************/
 void R_MAIN_UserInit(void)
 {
     /* Start user code. Do not edit comment generated here */
@@ -277,6 +312,49 @@ HAL_StatusTypeDef CAN_Read(FDCAN_RxHeaderTypeDef *pRxHeader)
     return ret;
 }
 
+uint16_t UartQueueLength(void);
+// 循环队列
+#define UART_RX_QUEUE_SIZE 256
+uint8_t g_uartRxQueue[UART_RX_QUEUE_SIZE];
+uint16_t g_uartRxQueueHead = 0;
+uint16_t g_uartRxQueueTail = 0;
+// 循环队列初始化
+void UartQueueInit(void)
+{
+    g_uartRxQueueHead = 0;
+    g_uartRxQueueTail = 0;
+}
+
+#define UartQueueIsEmpty() (g_uartRxQueueHead == g_uartRxQueueTail)
+#define UartQueueIsFull() ((g_uartRxQueueTail + 1) % UART_RX_QUEUE_SIZE == g_uartRxQueueHead)
+
+void UartQueuPush(uint8_t data)
+{
+    if (UartQueueIsFull())
+    {
+        return;
+    }
+    g_uartRxQueue[g_uartRxQueueTail] = data;
+    g_uartRxQueueTail = (g_uartRxQueueTail + 1) % UART_RX_QUEUE_SIZE;
+}
+
+uint8_t UartQueuePop(void)
+{
+    uint8_t data = 0;
+    if (UartQueueIsEmpty())
+    {
+        return 0;
+    }
+    data = g_uartRxQueue[g_uartRxQueueHead];
+    g_uartRxQueueHead = (g_uartRxQueueHead + 1) % UART_RX_QUEUE_SIZE;
+    return data;
+}
+
+uint16_t UartQueueLength(void)
+{
+    return (g_uartRxQueueTail - g_uartRxQueueHead + UART_RX_QUEUE_SIZE) % UART_RX_QUEUE_SIZE;
+}
+
 #include "HDL_Uart.h"
 
 void Uart_Init(COMID_t comId, uint32_t baud, uint32_t wordLen, uint32_t stopBit, uint32_t parity)
@@ -285,17 +363,33 @@ void Uart_Init(COMID_t comId, uint32_t baud, uint32_t wordLen, uint32_t stopBit,
 
 uint32_t Uart_Write(COMID_t comId, const uint8_t *writeBuf, uint32_t uLen)
 {
-    R_UART0_Send(writeBuf,(uint16_t)uLen);
+    R_UART0_Send(writeBuf, (uint16_t)uLen);
     return 0;
 }
 
 uint32_t Uart_Read(COMID_t comId, uint8_t *pBuf, uint32_t uiLen)
 {
+    uint32_t ret = 0;
+    for (;;)
+    {
+        if (UartQueueIsEmpty())
+        {
+            break;
+        }
+        *pBuf = UartQueuePop();
+        pBuf++;
+        ret++;
+        if (ret >= uiLen)
+        {
+            break;
+        }
+    }
     return 0;
 }
 
 uint32_t Uart_AvailableBytes(COMID_t comId)
 {
-    return 0;
+    return UartQueueLength();
 }
+
 /* End user code. Do not edit comment generated here */

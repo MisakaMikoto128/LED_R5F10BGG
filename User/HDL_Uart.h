@@ -28,18 +28,22 @@ extern "C"
 #define __TYPEDEF__
 #endif
 
-    // ?????
-#define  COM1 0
-#define       COM2  1 
+    // The COM ID
+#define COM1 0
+#define COM2 1
+#define COM_NUM 2
 
-#define     COM_NUM 2
-typedef  int COMID_t ;
-
+    typedef int COMID_t;
     void Uart_Init(COMID_t comId, uint32_t baud, uint32_t wordLen, uint32_t stopBit, uint32_t parity);
     uint32_t Uart_Write(COMID_t comId, const uint8_t *writeBuf, uint32_t uLen);
     uint32_t Uart_Read(COMID_t comId, uint8_t *pBuf, uint32_t uiLen);
     uint32_t Uart_AvailableBytes(COMID_t comId);
     uint32_t Uart_EmptyReadBuffer(COMID_t comId);
+
+    void UartQueueInit(void);
+    void UartQueuPush(uint8_t data);
+    uint8_t UartQueuePop(void);
+    uint16_t UartQueueLength(void);
 
 #ifdef __cplusplus
 }

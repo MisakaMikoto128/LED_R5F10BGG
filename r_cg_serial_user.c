@@ -60,6 +60,7 @@ extern volatile uint16_t  g_uart0_rx_length;           /* uart0 receive data len
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
+#include "HDL_Uart.h"
 __interrupt static void r_uart0_interrupt_receive(void)
 {
     volatile uint8_t rx_data;
@@ -74,7 +75,7 @@ __interrupt static void r_uart0_interrupt_receive(void)
     }
     
     rx_data = SDR01L;
-
+    UartQueuPush(rx_data);
     if (g_uart0_rx_length > g_uart0_rx_count)
     {
         *gp_uart0_rx_address = rx_data;
