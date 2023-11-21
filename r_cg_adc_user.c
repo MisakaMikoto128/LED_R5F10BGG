@@ -18,18 +18,18 @@
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
-* File Name    : r_cg_wdt_user.c
+* File Name    : r_cg_adc_user.c
 * Version      : CodeGenerator for RL78/F13 V2.03.07.02 [08 Nov 2021]
 * Device(s)    : R5F10BGG
 * Tool-Chain   : CA78K0R
-* Description  : This file implements device driver for WDT module.
+* Description  : This file implements device driver for ADC module.
 * Creation Date: 2023/11/22
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
 Pragma directive
 ***********************************************************************************************************************/
-#pragma interrupt INTWDTI r_wdt_interrupt
+#pragma interrupt INTAD r_adc_interrupt
 /* Start user code for pragma. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 
@@ -37,7 +37,7 @@ Pragma directive
 Includes
 ***********************************************************************************************************************/
 #include "r_cg_macrodriver.h"
-#include "r_cg_wdt.h"
+#include "r_cg_adc.h"
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
@@ -49,12 +49,12 @@ Global variables and functions
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
-* Function Name: r_wdt_interrupt
-* Description  : This function is INTWDTI interrupt service routine.
+* Function Name: r_adc_interrupt
+* Description  : This function is INTAD interrupt service routine.
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
-__interrupt static void r_wdt_interrupt(void)
+__interrupt static void r_adc_interrupt(void)
 {
     /* Start user code. Do not edit comment generated here */
     /* End user code. Do not edit comment generated here */
