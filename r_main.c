@@ -194,7 +194,7 @@ void main(void)
 
         if (CAN_Read(&rxHeader) == HAL_OK)
         {
-            P8.4 = 1;
+            
             CAN_Write(&txHeader, rxHeader.Data);
         }
 
@@ -293,10 +293,13 @@ void R_MAIN_UserInit(void)
     R_SAU0_Create();
     R_UART0_Start();
 
+    R_ADC_Create();
+    R_ADC_Start();
+
     tk_v0s_start();
     tk_v0t_drvinit();
 
-    P1 .2 = 0; // enable can chip
+    P1.2 = 0; // enable can chip
     EI();
     /* End user code. Do not edit comment generated here */
 }

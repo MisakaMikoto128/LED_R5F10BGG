@@ -46,6 +46,8 @@ Includes
 Global variables and functions
 ***********************************************************************************************************************/
 /* Start user code for global. Do not edit comment generated here */
+uint16_t g_ADC_Value[4]={0};
+static uint8_t g_adc_channel=0;	
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -57,6 +59,13 @@ Global variables and functions
 __interrupt static void r_adc_interrupt(void)
 {
     /* Start user code. Do not edit comment generated here */
+    R_ADC_Get_Result(&g_ADC_Value[g_adc_channel]);
+    g_adc_channel++;
+    if(g_adc_channel>=4)
+    {
+        g_adc_channel=0;
+    }
+    P8.4 = 1;
     /* End user code. Do not edit comment generated here */
 }
 

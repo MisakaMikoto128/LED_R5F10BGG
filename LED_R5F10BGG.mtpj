@@ -176,6 +176,27 @@
       <ParentItem>663193b2-e9fc-4f3a-85a5-3324f8169218</ParentItem>
       <Property>29820eab-3379-4cc2-8a2f-88ceaf599635</Property>
     </Instance>
+    <Instance Guid="8ebae76e-ae3a-47ce-9654-91c5c900b173">
+      <Name>r_cg_adc.c</Name>
+      <Type>File</Type>
+      <RelativePath>r_cg_adc.c</RelativePath>
+      <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
+      <ParentItem>663193b2-e9fc-4f3a-85a5-3324f8169218</ParentItem>
+    </Instance>
+    <Instance Guid="8cec71db-a9a4-4b03-8441-08010e64d255">
+      <Name>r_cg_adc_user.c</Name>
+      <Type>File</Type>
+      <RelativePath>r_cg_adc_user.c</RelativePath>
+      <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
+      <ParentItem>663193b2-e9fc-4f3a-85a5-3324f8169218</ParentItem>
+    </Instance>
+    <Instance Guid="afcb6e2c-a0bb-43d4-95cb-b079c3d4a1c0">
+      <Name>r_cg_adc.h</Name>
+      <Type>File</Type>
+      <RelativePath>r_cg_adc.h</RelativePath>
+      <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
+      <ParentItem>663193b2-e9fc-4f3a-85a5-3324f8169218</ParentItem>
+    </Instance>
     <Instance Guid="01dab31c-1748-4b26-9c12-dac238195da4">
       <Name>r_rl78_can_drv.c</Name>
       <Type>File</Type>
@@ -438,13 +459,17 @@
       <SourceItemType14>CSource</SourceItemType14>
       <SourceItemGuid15>ce4f4f4e-3032-4e41-a7e9-63e2a24f2341</SourceItemGuid15>
       <SourceItemType15>CSource</SourceItemType15>
-      <SourceItemGuid16>7613d9ba-e51f-4426-9fda-4b0af177765d</SourceItemGuid16>
+      <SourceItemGuid16>d789773b-e2d8-49d3-bcf6-5154e65829d9</SourceItemGuid16>
       <SourceItemType16>CSource</SourceItemType16>
       <SourceItemGuid17>01b6aa67-3c8e-481b-9bc9-e3baa032b6ce</SourceItemGuid17>
       <SourceItemType17>CSource</SourceItemType17>
-      <SourceItemGuid18>d789773b-e2d8-49d3-bcf6-5154e65829d9</SourceItemGuid18>
+      <SourceItemGuid18>7613d9ba-e51f-4426-9fda-4b0af177765d</SourceItemGuid18>
       <SourceItemType18>CSource</SourceItemType18>
-      <SourceItemCount>19</SourceItemCount>
+      <SourceItemGuid19>8ebae76e-ae3a-47ce-9654-91c5c900b173</SourceItemGuid19>
+      <SourceItemType19>CSource</SourceItemType19>
+      <SourceItemGuid20>8cec71db-a9a4-4b03-8441-08010e64d255</SourceItemGuid20>
+      <SourceItemType20>CSource</SourceItemType20>
+      <SourceItemCount>21</SourceItemCount>
       <VfiSourceItemCount>0</VfiSourceItemCount>
       <LastDeviceChangedCounter>0</LastDeviceChangedCounter>
     </Instance>
@@ -722,7 +747,7 @@ cl78mf
       <ReserveWorkingMemoryForRrmDmm-DefaultValue>False</ReserveWorkingMemoryForRrmDmm-DefaultValue>
       <StartAddressOfWorkingMemoryForRrmDmm-DefaultValue />
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8585019762808801460</TimeTagModified--0>
+      <TimeTagModified--0>-8585010215969339474</TimeTagModified--0>
       <DebugInformation-0>True</DebugInformation-0>
       <ErrorListFile-0>False</ErrorListFile-0>
       <LibraryFiles-0 />
@@ -865,7 +890,7 @@ cl78mf
       <VariableInformationFolder-DefaultValue>%BuildModeName%</VariableInformationFolder-DefaultValue>
       <VariableInformationFileName-DefaultValue>%ProjectName%.vfi</VariableInformationFileName-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8585019762808801460</TimeTagModified--0>
+      <TimeTagModified--0>-8585010215969339474</TimeTagModified--0>
       <Margin-0>0</Margin-0>
       <OutputRomRamUsage-0>False</OutputRomRamUsage-0>
       <VariableInformationFile-0>False</VariableInformationFile-0>
@@ -996,6 +1021,18 @@ cl78mf
       <ItemAddTime>638362083767323521</ItemAddTime>
       <ItemAddTimeCount>1</ItemAddTimeCount>
     </Instance>
+    <Instance Guid="8ebae76e-ae3a-47ce-9654-91c5c900b173">
+      <ItemAddTime>638362107437917009</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
+    <Instance Guid="8cec71db-a9a4-4b03-8441-08010e64d255">
+      <ItemAddTime>638362107437917009</ItemAddTime>
+      <ItemAddTimeCount>1</ItemAddTimeCount>
+    </Instance>
+    <Instance Guid="afcb6e2c-a0bb-43d4-95cb-b079c3d4a1c0">
+      <ItemAddTime>638362107437917009</ItemAddTime>
+      <ItemAddTimeCount>2</ItemAddTimeCount>
+    </Instance>
     <Instance Guid="fc999d8f-43d6-4cb3-af4b-cf6891d759fb">
       <TimeTagModified-SourceItem0--0>-8585019906975851595</TimeTagModified-SourceItem0--0>
       <SourceItem0-IsLockedByUser>False</SourceItem0-IsLockedByUser>
@@ -1061,7 +1098,7 @@ cl78mf
       <SourceItem15-IsLockedByUser>False</SourceItem15-IsLockedByUser>
       <SourceItem15-BuildingTarget-0>True</SourceItem15-BuildingTarget-0>
       <SourceItem15-IndividualCompileOption-0>False</SourceItem15-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem16--0>-8585010241087452287</TimeTagModified-SourceItem16--0>
+      <TimeTagModified-SourceItem16--0>-8585010241549892585</TimeTagModified-SourceItem16--0>
       <SourceItem16-IsLockedByUser>False</SourceItem16-IsLockedByUser>
       <SourceItem16-BuildingTarget-0>True</SourceItem16-BuildingTarget-0>
       <SourceItem16-IndividualCompileOption-0>False</SourceItem16-IndividualCompileOption-0>
@@ -1069,10 +1106,18 @@ cl78mf
       <SourceItem17-IsLockedByUser>False</SourceItem17-IsLockedByUser>
       <SourceItem17-BuildingTarget-0>True</SourceItem17-BuildingTarget-0>
       <SourceItem17-IndividualCompileOption-0>False</SourceItem17-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem18--0>-8585010241549892585</TimeTagModified-SourceItem18--0>
+      <TimeTagModified-SourceItem18--0>-8585010241087452287</TimeTagModified-SourceItem18--0>
       <SourceItem18-IsLockedByUser>False</SourceItem18-IsLockedByUser>
       <SourceItem18-BuildingTarget-0>True</SourceItem18-BuildingTarget-0>
       <SourceItem18-IndividualCompileOption-0>False</SourceItem18-IndividualCompileOption-0>
+      <TimeTagModified-SourceItem19--0>-8585010217416848772</TimeTagModified-SourceItem19--0>
+      <SourceItem19-IsLockedByUser>False</SourceItem19-IsLockedByUser>
+      <SourceItem19-BuildingTarget-0>True</SourceItem19-BuildingTarget-0>
+      <SourceItem19-IndividualCompileOption-0>False</SourceItem19-IndividualCompileOption-0>
+      <TimeTagModified-SourceItem20--0>-8585010217416838747</TimeTagModified-SourceItem20--0>
+      <SourceItem20-IsLockedByUser>False</SourceItem20-IsLockedByUser>
+      <SourceItem20-BuildingTarget-0>True</SourceItem20-BuildingTarget-0>
+      <SourceItem20-IndividualCompileOption-0>False</SourceItem20-IndividualCompileOption-0>
     </Instance>
   </Class>
   <Class Guid="44fa27c9-0aa0-4297-bd3b-2c5c5bdb8881">
@@ -1683,8 +1728,8 @@ cl78mf
         &lt;ADC /&gt;
       &lt;/Effect&gt;
     &lt;/VDDValue&gt;
-    &lt;AD_ADPC_USEDPIN Name="AD_ADPC_USEDPIN" Text="false" /&gt;
-    &lt;AD_ADS_USEDPIN Name="AD_ADS_USEDPIN" Text="false" /&gt;
+    &lt;AD_ADPC_USEDPIN Name="AD_ADPC_USEDPIN" Text="ANI0,ANI1,ANI2,ANI3," /&gt;
+    &lt;AD_ADS_USEDPIN Name="AD_ADS_USEDPIN" Text="ANI2," /&gt;
     &lt;ADPCForPort3 Name="ADPCForPort3" Value="255" Comment="ADPCForPort3" /&gt;
     &lt;ADPCForPort8 Name="ADPCForPort8" Value="7" Comment="ADPCForPort8" /&gt;
     &lt;ADPCForPort9 Name="ADPCForPort9" Value="255" Comment="ADPCForPort9" /&gt;
@@ -1825,9 +1870,9 @@ cl78mf
         &lt;TAU1 /&gt;
       &lt;/Effect&gt;
     &lt;/RTC1HZ&gt;
-    &lt;RXD0 Name="RXD0" Text="disable" /&gt;
+    &lt;RXD0 Name="RXD0" Text="enable" /&gt;
     &lt;ProjectName Name="PrjName" Text="LED_R5F10BGG" /&gt;
-    &lt;ProjectPath Name="PrjPath" Text="C:\Users\liuyu\Desktop\LED_R5F10BGG" /&gt;
+    &lt;ProjectPath Name="PrjPath" Text="C:\Users\liuyu\Desktop\LED_R5F10BGG1" /&gt;
     &lt;ProjectKind Name="PrjKind" Text="Project78K0R" /&gt;
     &lt;DeviceName Name="DeviceName" Fixed="" Text="RL78F13" /&gt;
     &lt;MCUName Name="MCUName" Text="RL78F13_48pin" /&gt;
@@ -1980,15 +2025,15 @@ cl78mf
           &lt;P13 Name="P13/TI04/TO04/TRDIOA0/TRDCLK0/SI01/SDA01/LTXD0" TTL="true" PITHL="true" Nch="true" AltFunc="" Point="I/O" /&gt;
           &lt;P14 Name="P14/TI06/TO06/TRDIOC0/_SCK01/SCL01/LRXD0" TTL="true" PITHL="true" Nch="true" AltFunc="" Point="I/O" /&gt;
           &lt;P15 Name="P15/TI05/TO05/TRDIOA1/TRDIOA0/TRDCLK0/SO00/TXD0/TOOLTXD/RTC1HZ" Nch="true" AltFunc="TXD0" Point="I/O" /&gt;
-          &lt;P16 Name="P16/TI02/TO02/TRDIOC1/SI00/SDA00/RXD0/TOOLRXD" TTL="true" PITHL="true" Nch="true" AltFunc="" Point="I/O" /&gt;
+          &lt;P16 Name="P16/TI02/TO02/TRDIOC1/SI00/SDA00/RXD0/TOOLRXD" TTL="true" PITHL="true" Nch="true" AltFunc="RXD0" Point="I/O" /&gt;
           &lt;P17 Name="P17/TI00/TO00/TRDIOB1/_SCK00/SCL00/INTP3" TTL="true" PITHL="true" Nch="true" AltFunc="" Point="I/O" /&gt;
         &lt;/Port1&gt;
         &lt;Port3 Chip="RL78F13_48pin,RL78F13_64pin,RL78F13_80pin"&gt;
           &lt;P30 Name="P30/TI01/TO01/TRDIOD1/_SSI00/INTP2/SNZOUT0" TTL="true" PITHL="true" Pullup="true" AltFunc="" Point="I/O" /&gt;
           &lt;P31 Name="P31/TI14/TO14/STOPST/INTP2" Pullup="true" AltFunc="P31" Point="I/O" /&gt;
           &lt;P32 Name="P32/TI16/TO16/INTP7" Pullup="true" AltFunc="" Point="I/O" /&gt;
-          &lt;P33 Name="P33/AVREFP/ANI00" AltFunc="" Point="I/O" /&gt;
-          &lt;P34 Name="P34/AVREFM/ANI01" AltFunc="" Point="I/O" /&gt;
+          &lt;P33 Name="P33/AVREFP/ANI00" AltFunc="ANALOG_0" Point="I/O" /&gt;
+          &lt;P34 Name="P34/AVREFM/ANI01" AltFunc="ANALOG_1" Point="I/O" /&gt;
         &lt;/Port3&gt;
         &lt;Port4 Chip="RL78F13_30pin,RL78F13_32pin,RL78F13_48pin" Pullup="true"&gt;
           &lt;P40 Name="P40/TOOL0" AltFunc="" Point="I/O" /&gt;
@@ -2007,8 +2052,8 @@ cl78mf
           &lt;P73 Name="P73/ANI29/KR3/CRXD0/_SSI11/SNZOUT7" Chip="R5F10AGF,R5F10AGG,R5F10BGC,R5F10BGD,R5F10BGE,R5F10BGF,R5F10BGG" TTL="true" PITHL="true" AltFunc="" Point="I/O" /&gt;
         &lt;/Port7&gt;
         &lt;Port8 Chip="RL78F13_30pin,RL78F13_48pin,RL78F13_64pin,RL78F13_80pin"&gt;
-          &lt;P80 Name="P80/ANI02/ANO0" AltFunc="" Point="I/O" /&gt;
-          &lt;P81 Name="P81/ANI03/IVCMP00" AltFunc="" Point="I/O" /&gt;
+          &lt;P80 Name="P80/ANI02/ANO0" AltFunc="ANI2" Point="I/O" /&gt;
+          &lt;P81 Name="P81/ANI03/IVCMP00" AltFunc="ANALOG_3" Point="I/O" /&gt;
           &lt;P82 Name="P82/ANI04/IVCMP01" AltFunc="" Point="I/O" /&gt;
           &lt;P83 Name="P83/ANI05/IVCMP02" AltFunc="" Point="I/O" /&gt;
           &lt;P84 Name="P84/ANI06/IVCMP03" AltFunc="P84" Point="I/O" /&gt;
@@ -2022,12 +2067,12 @@ cl78mf
           &lt;P92 Name="P92/ANI12" Chip="R5F10AGF,R5F10AGG,R5F10BGC,R5F10BGD,R5F10BGE,R5F10BGF,R5F10BGG" AltFunc="" Point="I/O" /&gt;
         &lt;/Port9&gt;
         &lt;Port12 Chip="RL78F13_48pin,RL78F13_64pin"&gt;
-          &lt;P120 Name="P120/ANI25/TI07/TO07/TRDIOD0/SO01/INTP4" Chip="R5F10AGF,R5F10AGG,R5F10ALF,R5F10ALG,R5F10BGC,R5F10BGD,R5F10BGE,R5F10BGF,R5F10BGG,R5F10BLC,R5F10BLD,R5F10BLE,R5F10BLF,R5F10BLG" DIN="true" Nch="true" Pullup="true" AltFunc="" Point="I/O" /&gt;
+          &lt;P120 Name="P120/ANI25/TI07/TO07/TRDIOD0/SO01/INTP4" Chip="R5F10AGF,R5F10AGG,R5F10ALF,R5F10ALG,R5F10BGC,R5F10BGD,R5F10BGE,R5F10BGF,R5F10BGG,R5F10BLC,R5F10BLD,R5F10BLE,R5F10BLF,R5F10BLG" DIN="true" Nch="true" Pullup="true" AltFunc="ANI25" Point="I/O" /&gt;
           &lt;P121 Name="P121/X1" AltFunc="X1" Point="I" /&gt;
           &lt;P122 Name="P122/X2/EXCLK" AltFunc="X2" Point="I" /&gt;
           &lt;P123 Name="P123/XT1" AltFunc="XT1" Point="I" /&gt;
           &lt;P124 Name="P124/XT2/EXCLKS" AltFunc="XT2" Point="I" /&gt;
-          &lt;P125 Name="P125/ANI24/TI03/TO03/TRDIOB0/_SSI01/INTP1/SNZOUT1" Chip="R5F10AGF,R5F10AGG,R5F10ALF,R5F10ALG,R5F10BGC,R5F10BGD,R5F10BGE,R5F10BGF,R5F10BGG,R5F10BLC,R5F10BLD,R5F10BLE,R5F10BLF,R5F10BLG" DIN="true" TTL="true" PITHL="true" Pullup="true" AltFunc="" Point="I/O" /&gt;
+          &lt;P125 Name="P125/ANI24/TI03/TO03/TRDIOB0/_SSI01/INTP1/SNZOUT1" Chip="R5F10AGF,R5F10AGG,R5F10ALF,R5F10ALG,R5F10BGC,R5F10BGD,R5F10BGE,R5F10BGF,R5F10BGG,R5F10BLC,R5F10BLD,R5F10BLE,R5F10BLF,R5F10BLG" DIN="true" TTL="true" PITHL="true" Pullup="true" AltFunc="ANI24" Point="I/O" /&gt;
         &lt;/Port12&gt;
         &lt;Port13 Chip="RL78F13_48pin,RL78F13_64pin,RL78F13_80pin"&gt;
           &lt;P130 Name="P130/RESOUT" AltFunc="" Point="O" /&gt;
@@ -2273,7 +2318,7 @@ cl78mf
           &lt;INTCSI00 InUse="0" ISR="r_csi00_interrupt" /&gt;
           &lt;INTCSI01 InUse="0" ISR="r_csi01_interrupt" /&gt;
           &lt;INTST0 InUse="1" ISR="r_uart0_interrupt_send" /&gt;
-          &lt;INTSR0 InUse="0" ISR="r_uart0_interrupt_receive" /&gt;
+          &lt;INTSR0 InUse="1" ISR="r_uart0_interrupt_receive" /&gt;
           &lt;INTIIC00 InUse="0" ISR="r_iic00_interrupt" /&gt;
           &lt;INTIIC01 InUse="0" ISR="r_iic01_interrupt" /&gt;
         &lt;/SAU0&gt;
@@ -2290,7 +2335,7 @@ cl78mf
         &lt;/IICA0&gt;
       &lt;/Serial&gt;
       &lt;ADC&gt;
-        &lt;INTAD InUse="0" ISR="r_adc_interrupt" IsDMATrigger="true" /&gt;
+        &lt;INTAD InUse="1" ISR="r_adc_interrupt" IsDMATrigger="true" /&gt;
       &lt;/ADC&gt;
       &lt;TAU&gt;
         &lt;TAU0&gt;
@@ -2543,7 +2588,7 @@ cl78mf
               &lt;R_UART0_Start UserName="R_UART0_Start" LibName="R_UARTn_Start" InUse="1" /&gt;
               &lt;R_UART0_Stop UserName="R_UART0_Stop" LibName="R_UARTn_Stop" InUse="1" /&gt;
               &lt;R_UART0_Send UserName="R_UART0_Send" LibName="R_UARTn_Send" InUse="1" /&gt;
-              &lt;R_UART0_Receive UserName="R_UART0_Receive" LibName="R_UARTn_Receive" InUse="0" /&gt;
+              &lt;R_UART0_Receive UserName="R_UART0_Receive" LibName="R_UARTn_Receive" InUse="1" /&gt;
             &lt;/UART0&gt;
             &lt;CSI00 InUse=""&gt;
               &lt;R_CSI00_Create UserName="R_CSI00_Create" LibName="R_CSIn_Create" InUse="0" InitMode="" /&gt;
@@ -2639,12 +2684,12 @@ cl78mf
           &lt;SAU0 InUse=""&gt;
             &lt;R_SAU0_Create_UserInit UserName="R_SAU0_Create_UserInit" LibName="R_SAUn_Create_UserInit" InUse="0" /&gt;
             &lt;UART0 InUse=""&gt;
-              &lt;r_uart0_interrupt_receive UserName="r_uart0_interrupt_receive" INTHandle="" LibName="r_uartn_interrupt_receive" InUse="0" /&gt;
+              &lt;r_uart0_interrupt_receive UserName="r_uart0_interrupt_receive" INTHandle="" LibName="r_uartn_interrupt_receive" InUse="1" /&gt;
               &lt;r_uart0_interrupt_send UserName="r_uart0_interrupt_send" INTHandle="" LibName="r_uartn_interrupt_send" InUse="1" /&gt;
-              &lt;r_uart0_callback_receiveend UserName="r_uart0_callback_receiveend" LibName="r_uartn_callback_receiveend" InUse="0" /&gt;
+              &lt;r_uart0_callback_receiveend UserName="r_uart0_callback_receiveend" LibName="r_uartn_callback_receiveend" InUse="1" /&gt;
               &lt;r_uart0_callback_sendend UserName="r_uart0_callback_sendend" LibName="r_uartn_callback_sendend" InUse="1" /&gt;
-              &lt;r_uart0_callback_error UserName="r_uart0_callback_error" LibName="r_uartn_callback_error" InUse="0" /&gt;
-              &lt;r_uart0_callback_softwareoverrun UserName="r_uart0_callback_softwareoverrun" LibName="r_uartn_callback_softwareoverrun" InUse="0" /&gt;
+              &lt;r_uart0_callback_error UserName="r_uart0_callback_error" LibName="r_uartn_callback_error" InUse="1" /&gt;
+              &lt;r_uart0_callback_softwareoverrun UserName="r_uart0_callback_softwareoverrun" LibName="r_uartn_callback_softwareoverrun" InUse="1" /&gt;
             &lt;/UART0&gt;
             &lt;CSI00 InUse=""&gt;
               &lt;r_csi00_interrupt UserName="r_csi00_interrupt" INTHandle="" LibName="r_csin_interrupt" InUse="0" /&gt;
@@ -2721,27 +2766,27 @@ cl78mf
         &lt;r_cg_serial.h UserName="r_cg_serial.h" LibName=".h" InUse="1" /&gt;
       &lt;/Serial&gt;
       &lt;ADC&gt;
-        &lt;r_cg_adc.c UserName="r_cg_adc.c" LibName=".c" InUse=""&gt;
+        &lt;r_cg_adc.c UserName="r_cg_adc.c" LibName=".c" InUse="1"&gt;
           &lt;Type R_ADC_Create="void R_ADC_Create(void)" R_ADC_Start="void R_ADC_Start(void)" R_ADC_Stop="void R_ADC_Stop(void)" R_ADC_Set_OperationOn="void R_ADC_Set_OperationOn(void)" R_ADC_Set_OperationOff="void R_ADC_Set_OperationOff(void)" R_ADC_Get_Result="void R_ADC_Get_Result(uint16_t * const buffer)" R_ADC_Get_Result_8bit="void R_ADC_Get_Result_8bit(uint8_t * const buffer)" R_ADC_Set_ADChannel="MD_STATUS R_ADC_Set_ADChannel(ad_channel_t channel)" R_ADC_Set_SnoozeOn="void R_ADC_Set_SnoozeOn(void)" R_ADC_Set_SnoozeOff="void R_ADC_Set_SnoozeOff(void)" R_ADC_Set_TestChannel="MD_STATUS R_ADC_Set_TestChannel(test_channel_t channel)" R_ADC_Set_PowerOff="void R_ADC_Set_PowerOff(void)" /&gt;
-          &lt;R_ADC_Create UserName="R_ADC_Create" LibName="R_ADC_Create" InUse="" Init="1" InitMode="" /&gt;
-          &lt;R_ADC_Start UserName="R_ADC_Start" LibName="R_ADC_Start" InUse="" /&gt;
-          &lt;R_ADC_Stop UserName="R_ADC_Stop" LibName="R_ADC_Stop" InUse="" /&gt;
-          &lt;R_ADC_Set_OperationOn UserName="R_ADC_Set_OperationOn" LibName="R_ADC_Set_OperationOn" InUse="" /&gt;
-          &lt;R_ADC_Set_OperationOff UserName="R_ADC_Set_OperationOff" LibName="R_ADC_Set_OperationOff" InUse="" /&gt;
-          &lt;R_ADC_Get_Result UserName="R_ADC_Get_Result" LibName="R_ADC_Get_Result" InUse="" /&gt;
-          &lt;R_ADC_Get_Result_8bit UserName="R_ADC_Get_Result_8bit" LibName="R_ADC_Get_Result_8bit" InUse="" /&gt;
-          &lt;R_ADC_Set_ADChannel UserName="R_ADC_Set_ADChannel" LibName="R_ADC_Set_ADChannel" InUse="" /&gt;
-          &lt;R_ADC_Set_SnoozeOn UserName="R_ADC_Set_SnoozeOn" LibName="R_ADC_Set_SnoozeOn" InUse="" /&gt;
-          &lt;R_ADC_Set_SnoozeOff UserName="R_ADC_Set_SnoozeOff" LibName="R_ADC_Set_SnoozeOff" InUse="" /&gt;
-          &lt;R_ADC_Set_TestChannel UserName="R_ADC_Set_TestChannel" LibName="R_ADC_Set_TestChannel" InUse="" /&gt;
-          &lt;R_ADC_Set_PowerOff UserName="R_ADC_Set_PowerOff" LibName="R_ADC_Set_PowerOff" InUse="" /&gt;
+          &lt;R_ADC_Create UserName="R_ADC_Create" LibName="R_ADC_Create" InUse="1" Init="1" InitMode="" /&gt;
+          &lt;R_ADC_Start UserName="R_ADC_Start" LibName="R_ADC_Start" InUse="1" /&gt;
+          &lt;R_ADC_Stop UserName="R_ADC_Stop" LibName="R_ADC_Stop" InUse="1" /&gt;
+          &lt;R_ADC_Set_OperationOn UserName="R_ADC_Set_OperationOn" LibName="R_ADC_Set_OperationOn" InUse="1" /&gt;
+          &lt;R_ADC_Set_OperationOff UserName="R_ADC_Set_OperationOff" LibName="R_ADC_Set_OperationOff" InUse="1" /&gt;
+          &lt;R_ADC_Get_Result UserName="R_ADC_Get_Result" LibName="R_ADC_Get_Result" InUse="1" /&gt;
+          &lt;R_ADC_Get_Result_8bit UserName="R_ADC_Get_Result_8bit" LibName="R_ADC_Get_Result_8bit" InUse="0" /&gt;
+          &lt;R_ADC_Set_ADChannel UserName="R_ADC_Set_ADChannel" LibName="R_ADC_Set_ADChannel" InUse="0" /&gt;
+          &lt;R_ADC_Set_SnoozeOn UserName="R_ADC_Set_SnoozeOn" LibName="R_ADC_Set_SnoozeOn" InUse="0" /&gt;
+          &lt;R_ADC_Set_SnoozeOff UserName="R_ADC_Set_SnoozeOff" LibName="R_ADC_Set_SnoozeOff" InUse="0" /&gt;
+          &lt;R_ADC_Set_TestChannel UserName="R_ADC_Set_TestChannel" LibName="R_ADC_Set_TestChannel" InUse="0" /&gt;
+          &lt;R_ADC_Set_PowerOff UserName="R_ADC_Set_PowerOff" LibName="R_ADC_Set_PowerOff" InUse="0" /&gt;
         &lt;/r_cg_adc.c&gt;
-        &lt;r_cg_adc_user.c UserName="r_cg_adc_user.c" LibName="_user.c" InUse=""&gt;
+        &lt;r_cg_adc_user.c UserName="r_cg_adc_user.c" LibName="_user.c" InUse="1"&gt;
           &lt;Type R_ADC_Create_UserInit="void R_ADC_Create_UserInit(void)" r_adc_interrupt="__interrupt static void r_adc_interrupt(void)" /&gt;
-          &lt;R_ADC_Create_UserInit UserName="R_ADC_Create_UserInit" LibName="R_ADC_Create_UserInit" InUse="" /&gt;
-          &lt;r_adc_interrupt UserName="r_adc_interrupt" INTHandle="" LibName="r_adc_interrupt" InUse="" /&gt;
+          &lt;R_ADC_Create_UserInit UserName="R_ADC_Create_UserInit" LibName="R_ADC_Create_UserInit" InUse="0" /&gt;
+          &lt;r_adc_interrupt UserName="r_adc_interrupt" INTHandle="" LibName="r_adc_interrupt" InUse="1" /&gt;
         &lt;/r_cg_adc_user.c&gt;
-        &lt;r_cg_adc.h UserName="r_cg_adc.h" LibName=".h" InUse="" /&gt;
+        &lt;r_cg_adc.h UserName="r_cg_adc.h" LibName=".h" InUse="1" /&gt;
       &lt;/ADC&gt;
       &lt;TAU&gt;
         &lt;r_cg_timer.c UserName="r_cg_timer.c" LibName=".c" InUse="1"&gt;
@@ -3115,9 +3160,10 @@ cl78mf
     &lt;/FUNC&gt;
     &lt;TAG&gt;
       &lt;GlobleUserTag&gt;
+        &lt;cg_crc_area Name="cg_crc_area" Value="00" /&gt;
         &lt;cg_security9 Name="cg_security9" Value="00" /&gt;
         &lt;cg_security7 Name="cg_security7" Value="00" /&gt;
-        &lt;pior_value7 Name="pior_value7" Value="00" /&gt;
+        &lt;pior_value4 Name="pior_value4" Value="00" /&gt;
         &lt;pior_value1 Name="pior_value1" Value="00" /&gt;
         &lt;cg_security5 Name="cg_security5" Value="00" /&gt;
         &lt;ocdstart Name="ocdstart" Value="1FE00" /&gt;
@@ -3128,16 +3174,15 @@ cl78mf
         &lt;wdt_option Name="wdt_option" Value="F9" /&gt;
         &lt;clock_option Name="clock_option" Value="EA" /&gt;
         &lt;dataflash_use Name="dataflash_use" Value="" /&gt;
-        &lt;cg_security2 Name="cg_security2" Value="00" /&gt;
         &lt;cg_option Name="cg_option" Value="04" /&gt;
         &lt;cg_security8 Name="cg_security8" Value="00" /&gt;
         &lt;df_waittime Name="df_waittime" Value="3" /&gt;
         &lt;pior_value0 Name="pior_value0" Value="00" /&gt;
         &lt;cg_security4 Name="cg_security4" Value="00" /&gt;
-        &lt;cg_crc_area Name="cg_crc_area" Value="00" /&gt;
+        &lt;cg_security2 Name="cg_security2" Value="00" /&gt;
         &lt;cg_iawctl_value Name="cg_iawctl_value" Value="00" /&gt;
         &lt;lvi_option Name="lvi_option" Value="FF" /&gt;
-        &lt;pior_value4 Name="pior_value4" Value="00" /&gt;
+        &lt;pior_value7 Name="pior_value7" Value="00" /&gt;
         &lt;cg_security6 Name="cg_security6" Value="00" /&gt;
       &lt;/GlobleUserTag&gt;
     &lt;/TAG&gt;
@@ -3164,8 +3209,8 @@ cl78mf
       &lt;/SAU1&gt;
       &lt;IICA0 Accelerate="No" Chip="groupb,R5F10BBC,R5F10BBD,R5F10BBE,R5F10BBF,R5F10BBG,R5F10BGC,R5F10BGD,R5F10BGE,R5F10BGF,R5F10BGG,R5F10BLC,R5F10BLD,R5F10BLE,R5F10BLF,R5F10BLG,R5F10BME,R5F10BMF,R5F10BMG" MacroName="IICA" Channel="0" SetFlag="False" TabEnable="True" /&gt;
     &lt;/Serial&gt;
-    &lt;ADC SetFlag="" HelpID="adc" NeedRefresh="False"&gt;
-      &lt;ADC SetFlag="" MacroName="ADC" /&gt;
+    &lt;ADC SetFlag="True" HelpID="adc" NeedRefresh="False"&gt;
+      &lt;ADC SetFlag="True" MacroName="ADC" /&gt;
     &lt;/ADC&gt;
     &lt;TAU SetFlag="True" HelpID="timer" NeedRefresh="False"&gt;
       &lt;TAU0 Accelerate="No" MacroName="TAU" Channel="0" ChannelNum="0,1,2,3,4,5,6,7" SetFlag="True" TabEnable="True" /&gt;
@@ -3741,44 +3786,7 @@ cl78mf
       &lt;UART0 /&gt;
       &lt;Channel0&gt;
         &lt;setting name="CHANNEL_FUNCTION" value="1" /&gt;
-        &lt;setting name="DETAIL_FUNCTION" value="1" /&gt;
-        &lt;Transmit_UART0&gt;
-          &lt;setting name="RECEIVE_DATA_DIRECTION_LSB" value="true" /&gt;
-          &lt;setting name="RECEIVE_DATA_DIRECTION_MSB" value="false" /&gt;
-          &lt;setting name="RECEIVE_LEVEL_REVERSE" value="false" /&gt;
-          &lt;setting name="RECEIVE_LEVEL_NORMAL" value="true" /&gt;
-          &lt;setting name="RECEIVE_DATA_LENGTH_8_BITS" value="true" /&gt;
-          &lt;setting name="RECEIVE_DATA_LENGTH_7_BITS" value="false" /&gt;
-          &lt;setting name="RECEIVE_DATA_LENGTH_9_BITS" value="false" /&gt;
-          &lt;setting name="RECEIVE_DATA_LENGTH_16_BITS" value="false" /&gt;
-          &lt;setting name="RECEIVE_PARITY_EVEN" value="false" /&gt;
-          &lt;setting name="RECEIVE_PARITY_ODD" value="false" /&gt;
-          &lt;setting name="RECEIVE_PARITY_ZERO" value="false" /&gt;
-          &lt;setting name="RECEIVE_PARITY_NONE" value="true" /&gt;
-          &lt;setting name="RECEIVE_TRANSFER_BAUDRATE_VALUE" value="9600" /&gt;
-          &lt;setting name="CALLBACK_RECEIVE_END_USE" value="true" /&gt;
-          &lt;setting name="Receive_error_callback_function" value="generated" /&gt;
-          &lt;setting name="TRANSFER_MODE_CONTINUOUS" value="false" /&gt;
-          &lt;setting name="TRANSFER_MODE_SINGLE" value="true" /&gt;
-          &lt;setting name="TRANSMIT_DATA_DIRECTION_LSB" value="true" /&gt;
-          &lt;setting name="TRANSMIT_DATA_DIRECTION_MSB" value="false" /&gt;
-          &lt;setting name="TRANSMIT_LEVEL_REVERSE" value="false" /&gt;
-          &lt;setting name="TRANSMIT_LEVEL_NORMAL" value="true" /&gt;
-          &lt;setting name="TRANSMIT_DATA_LENGTH_8_BITS" value="true" /&gt;
-          &lt;setting name="TRANSMIT_DATA_LENGTH_7_BITS" value="false" /&gt;
-          &lt;setting name="TRANSMIT_DATA_LENGTH_9_BITS" value="false" /&gt;
-          &lt;setting name="TRANSMIT_DATA_LENGTH_16_BITS" value="false" /&gt;
-          &lt;setting name="TRANSMIT_PARITY_EVEN" value="false" /&gt;
-          &lt;setting name="TRANSMIT_PARITY_ODD" value="false" /&gt;
-          &lt;setting name="TRANSMIT_PARITY_ZERO" value="false" /&gt;
-          &lt;setting name="TRANSMIT_PARITY_NONE" value="true" /&gt;
-          &lt;setting name="TRANSMIT_STOP_LENGTH_2_BITS" value="false" /&gt;
-          &lt;setting name="TRANSMIT_STOP_LENGTH_1_BIT" value="true" /&gt;
-          &lt;setting name="TRANSMIT_TRANSFER_BAUDRATE_VALUE" value="9600" /&gt;
-          &lt;setting name="CALLBACK_TRANSMIT_END_USE" value="true" /&gt;
-          &lt;setting name="INT_PRIORITY_TRANSMIT_END" value="3" /&gt;
-          &lt;setting name="INT_PRIORITY_RECEPTION_END" value="3" /&gt;
-        &lt;/Transmit_UART0&gt;
+        &lt;setting name="DETAIL_FUNCTION" value="2" /&gt;
         &lt;Both_UART0&gt;
           &lt;setting name="RECEIVE_DATA_DIRECTION_LSB" value="true" /&gt;
           &lt;setting name="RECEIVE_DATA_DIRECTION_MSB" value="false" /&gt;
@@ -3816,6 +3824,43 @@ cl78mf
           &lt;setting name="INT_PRIORITY_TRANSMIT_END" value="3" /&gt;
           &lt;setting name="INT_PRIORITY_RECEPTION_END" value="3" /&gt;
         &lt;/Both_UART0&gt;
+        &lt;Transmit_UART0&gt;
+          &lt;setting name="RECEIVE_DATA_DIRECTION_LSB" value="true" /&gt;
+          &lt;setting name="RECEIVE_DATA_DIRECTION_MSB" value="false" /&gt;
+          &lt;setting name="RECEIVE_LEVEL_REVERSE" value="false" /&gt;
+          &lt;setting name="RECEIVE_LEVEL_NORMAL" value="true" /&gt;
+          &lt;setting name="RECEIVE_DATA_LENGTH_8_BITS" value="true" /&gt;
+          &lt;setting name="RECEIVE_DATA_LENGTH_7_BITS" value="false" /&gt;
+          &lt;setting name="RECEIVE_DATA_LENGTH_9_BITS" value="false" /&gt;
+          &lt;setting name="RECEIVE_DATA_LENGTH_16_BITS" value="false" /&gt;
+          &lt;setting name="RECEIVE_PARITY_EVEN" value="false" /&gt;
+          &lt;setting name="RECEIVE_PARITY_ODD" value="false" /&gt;
+          &lt;setting name="RECEIVE_PARITY_ZERO" value="false" /&gt;
+          &lt;setting name="RECEIVE_PARITY_NONE" value="true" /&gt;
+          &lt;setting name="RECEIVE_TRANSFER_BAUDRATE_VALUE" value="9600" /&gt;
+          &lt;setting name="CALLBACK_RECEIVE_END_USE" value="true" /&gt;
+          &lt;setting name="Receive_error_callback_function" value="generated" /&gt;
+          &lt;setting name="TRANSFER_MODE_CONTINUOUS" value="false" /&gt;
+          &lt;setting name="TRANSFER_MODE_SINGLE" value="true" /&gt;
+          &lt;setting name="TRANSMIT_DATA_DIRECTION_LSB" value="true" /&gt;
+          &lt;setting name="TRANSMIT_DATA_DIRECTION_MSB" value="false" /&gt;
+          &lt;setting name="TRANSMIT_LEVEL_REVERSE" value="false" /&gt;
+          &lt;setting name="TRANSMIT_LEVEL_NORMAL" value="true" /&gt;
+          &lt;setting name="TRANSMIT_DATA_LENGTH_8_BITS" value="true" /&gt;
+          &lt;setting name="TRANSMIT_DATA_LENGTH_7_BITS" value="false" /&gt;
+          &lt;setting name="TRANSMIT_DATA_LENGTH_9_BITS" value="false" /&gt;
+          &lt;setting name="TRANSMIT_DATA_LENGTH_16_BITS" value="false" /&gt;
+          &lt;setting name="TRANSMIT_PARITY_EVEN" value="false" /&gt;
+          &lt;setting name="TRANSMIT_PARITY_ODD" value="false" /&gt;
+          &lt;setting name="TRANSMIT_PARITY_ZERO" value="false" /&gt;
+          &lt;setting name="TRANSMIT_PARITY_NONE" value="true" /&gt;
+          &lt;setting name="TRANSMIT_STOP_LENGTH_2_BITS" value="false" /&gt;
+          &lt;setting name="TRANSMIT_STOP_LENGTH_1_BIT" value="true" /&gt;
+          &lt;setting name="TRANSMIT_TRANSFER_BAUDRATE_VALUE" value="9600" /&gt;
+          &lt;setting name="CALLBACK_TRANSMIT_END_USE" value="true" /&gt;
+          &lt;setting name="INT_PRIORITY_TRANSMIT_END" value="3" /&gt;
+          &lt;setting name="INT_PRIORITY_RECEPTION_END" value="3" /&gt;
+        &lt;/Transmit_UART0&gt;
         &lt;Receive_UART0&gt;
           &lt;setting name="RECEIVE_DATA_DIRECTION_LSB" value="true" /&gt;
           &lt;setting name="RECEIVE_DATA_DIRECTION_MSB" value="false" /&gt;
@@ -4474,10 +4519,49 @@ cl78mf
     &lt;TMRD1&gt;
       &lt;setting name="Function" value="Unused" /&gt;
     &lt;/TMRD1&gt;
+    &lt;ADC&gt;
+      &lt;setting name="ADC_USED" value="true" /&gt;
+      &lt;setting name="ADC_UNUSED" value="false" /&gt;
+      &lt;setting name="ADC_COMPARATOR_ENABLE" value="true" /&gt;
+      &lt;setting name="ADC_COMPARATOR_DISABLE" value="false" /&gt;
+      &lt;setting name="ADC_RESOLUTION_10BIT" value="true" /&gt;
+      &lt;setting name="ADC_RESOLUTION_8BIT" value="false" /&gt;
+      &lt;setting name="ADC_POSITIVE_VDD" value="true" /&gt;
+      &lt;setting name="ADC_POSITIVE_AVREFP" value="false" /&gt;
+      &lt;setting name="ADC_POSITIVE_BGR" value="false" /&gt;
+      &lt;setting name="ADC_NEGATIVE_VSS" value="true" /&gt;
+      &lt;setting name="ADC_NEGATIVE_AVREFM" value="false" /&gt;
+      &lt;setting name="ADC_TRIGGER_SOFTWARE" value="true" /&gt;
+      &lt;setting name="ADC_TRIGGER_HARDWARE_NOWAIT" value="false" /&gt;
+      &lt;setting name="ADC_TRIGGER_HARDWARE_WAIT" value="false" /&gt;
+      &lt;setting name="ADC_TRIGGER_SOURCE_UPDATE" value="0" /&gt;
+      &lt;setting name="ADC_CONTINUOUS_SELECT_MODE" value="true" /&gt;
+      &lt;setting name="ADC_ONESHOT_SELECT_MODE" value="false" /&gt;
+      &lt;setting name="ADC_CONTINUOUS_SCAN_MODE" value="false" /&gt;
+      &lt;setting name="ADC_ONESHOT_SCAN_MODE" value="false" /&gt;
+      &lt;setting name="ADC_ANALOG_INPUT_SELECTION" value="9" /&gt;
+      &lt;setting name="ANALOG_INPUT_24" value="true" /&gt;
+      &lt;setting name="ANALOG_INPUT_25" value="true" /&gt;
+      &lt;setting name="ANALOG_INPUT_26" value="true" /&gt;
+      &lt;setting name="ADC_CONVERSION_MODE" value="0" /&gt;
+      &lt;setting name="ADC_CONVERSION_TIME" value="0" /&gt;
+      &lt;setting name="ADC_INTERRUPT_GENERATE_CONDITION_1" value="true" /&gt;
+      &lt;setting name="ADC_INTERRUPT_GENERATE_CONDITION_2" value="false" /&gt;
+      &lt;setting name="ADC_UPPER_BOUND_VALUE" value="255" /&gt;
+      &lt;setting name="ADC_LOWER_BOUND_VALUE" value="0" /&gt;
+      &lt;setting name="ADC_INTERRUPT_PRIORITY" value="3" /&gt;
+      &lt;setting name="ADC_INTERRUPT_USED" value="true" /&gt;
+      &lt;setting name="ANALOG_INPUT_30" value="true" /&gt;
+      &lt;setting name="ANALOG_INPUT_29" value="true" /&gt;
+      &lt;setting name="ANALOG_INPUT_28" value="true" /&gt;
+      &lt;setting name="ANALOG_INPUT_27" value="true" /&gt;
+      &lt;setting name="ADC_CHANNEL_SELECTION" value="2" /&gt;
+    &lt;/ADC&gt;
   &lt;/SETTING&gt;
 &lt;/RL78F13&gt;</CodeGenerator>
       <FormatVersion>1.0</FormatVersion>
       <ToolGUID>ff037d4a-a7d5-43a0-bcd7-3793bb685b6e</ToolGUID>
+      <CodeGeneratorItem>663193b2-e9fc-4f3a-85a5-3324f8169218</CodeGeneratorItem>
     </Instance>
   </Class>
   <Class Guid="59a8ea33-e927-4d12-9690-902219de85d7">
