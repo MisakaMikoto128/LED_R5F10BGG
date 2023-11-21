@@ -8,18 +8,45 @@
 02FFEDC@@FPRXD
 02FFEDC@@FPRXP
 02FFEDD@@FPRXS
-01001A4@@lsband
-01001A4@@luband
-0100185@@lursh
-02FE0C6_?DATA
-02FE0CA_?DATAL
-02FE0CA_?DATS
-02FE0CA_?INIS
-02FE0CA_?INIT
-02FE0CA_?INITL
+0100425@@fdiv
+01003B9@@finfws
+01003DC@@fmthrr
+01001FA@@fmul
+010030D@@fnor
+0100383@@fret
+01003A1@@fret0
+01003A4@@fret0s
+01003AD@@fret0x
+0100345@@fstore
+0100550@@ftols
+0100562@@ftolse
+01005C8@@ftolu
+0100338@@funite
+01003B1@@fx0div
+010039D@@fxinex
+01003D1@@fxnan1
+01003CC@@fxnan2
+01003B5@@fxover
+01001A6@@lsadd
+01001E6@@lsband
+0100185@@lsmul
+01001B5@@lssub
+01001A6@@luadd
+01001E6@@luband
+0100185@@lumul
+01001C7@@lursh
+01001B5@@lusub
+01005F3@@lutof
+01005FC@@lutofe
+02FE12E_?DATA
+02FE1B0_?DATAL
+02FE1B0_?DATS
+02FE1B0_?INIS
+02FE1B0_?INIT
+02FE1B0_?INITL
 0100002_?RLINIT
 0100002_?R_INIS
-010000A_?R_INIT
+01000B0_?R_INIT
 02FDF98_@BRKADR
 02FDF86_@DIVR
 02FDF80_@FNCENT
@@ -44,7 +71,7 @@
 02FFED6_@SEGDE
 02FFED7_@SEGHL
 00FFED4_@STBEG
-00FE0CA_@STEND
+00FE1B0_@STEND
 02FDF92_@TOKPTR
 0100185_@cend
 01000D8_@cstart
@@ -52,54 +79,79 @@
 0100016_@vect16
 0100018_@vect18
 010002C_@vect2c
-010047B_CAN_Init
-010053F_CAN_Read
-010047C_CAN_Write
-0100F9A_HDL_CPU_IncTick
-0100F9E_HDL_CPU_Time_DelayMs
-0100F91_HDL_CPU_Time_GetTick
-0100F90_HDL_CPU_Time_Init
-0100F95_HDL_CPU_Time_ResetTick
-0100C2E_R_CAN_AbortTrm_CH0
-0100B5C_R_CAN_ChStart_CH0
-0100C3D_R_CAN_CheckTxBufResult_CH0
-010040B_R_CAN_Create
-0100B03_R_CAN_GlobalStart
-01009B5_R_CAN_Init
-0100F8A_R_CAN_ReadChStatus_CH0
-0100CC3_R_CAN_ReadRxBuffer
-0100DC2_R_CAN_ReadRxFIFO
-0100DE3_R_CAN_ReadRxFIFO0
-0100E70_R_CAN_ReadRxFIFO1
-0100EFD_R_CAN_ReadTRFIFO0_CH0
-0100C6C_R_CAN_TrmByTRFIFO0_CH0
-0100B94_R_CAN_TrmByTxBuf_CH0
-01006F8_R_CGC_Create
-010079E_R_CGC_Get_ResetSource
-0100380_R_MAIN_UserInit
-01007A3_R_PORT_Create
-0100861_R_SAU0_Create
-0100697_R_Systeminit
-010083F_R_TAU0_Channel0_Start
-0100850_R_TAU0_Channel0_Stop
-01007CF_R_TAU0_Create
-0100871_R_UART0_Create
-0100937_R_UART0_Receive
-010095D_R_UART0_Send
-01008EB_R_UART0_Start
-0100916_R_UART0_Stop
-01007BB_R_WDT_Create
-01007CB_R_WDT_Restart
-01005E3_UartQueuPush
-01005DB_UartQueueInit
-0100622_UartQueueLength
-0100600_UartQueuePop
-010068B_Uart_AvailableBytes
-010062C_Uart_Init
-010064A_Uart_Read
-0100634_Uart_Write
+010236D_CAN_Init
+0102431_CAN_Read
+010236E_CAN_Write
+0103A09_CPSQ8100_CheckFrame
+0102589_CPSQ8100_Config
+010364E_CPSQ8100_Init
+0103ABC_CPSQ8100_IsIdle
+0103A4A_CPSQ8100_Poll
+0103762_CPSQ8100_ReadRegisterRequest
+01025D8_CPSQ8100_RecevieCallback
+010364A_CPSQ8100_RestSM
+010389E_CPSQ8100_Send
+0103667_CPSQ8100_SendRequest
+01036F7_CPSQ8100_WriteRegisterRequest
+010384F_CPSQ8100_WriteRegisterRequest_Uint16
+01037AA_CPSQ8100_WriteRegisterRequest_Uint32
+01039BA_CPSQ8100_WriteRegister_Uint16
+0103915_CPSQ8100_WriteRegister_Uint32
+0103255_HDL_CPU_IncTick
+0103259_HDL_CPU_Time_DelayMs
+010324C_HDL_CPU_Time_GetTick
+010324B_HDL_CPU_Time_Init
+0103250_HDL_CPU_Time_ResetTick
+0102EE9_R_CAN_AbortTrm_CH0
+0102E17_R_CAN_ChStart_CH0
+0102EF8_R_CAN_CheckTxBufResult_CH0
+01022FD_R_CAN_Create
+0102DBE_R_CAN_GlobalStart
+0102C70_R_CAN_Init
+0103245_R_CAN_ReadChStatus_CH0
+0102F7E_R_CAN_ReadRxBuffer
+010307D_R_CAN_ReadRxFIFO
+010309E_R_CAN_ReadRxFIFO0
+010312B_R_CAN_ReadRxFIFO1
+01031B8_R_CAN_ReadTRFIFO0_CH0
+0102F27_R_CAN_TrmByTRFIFO0_CH0
+0102E4F_R_CAN_TrmByTxBuf_CH0
+01029B3_R_CGC_Create
+0102A59_R_CGC_Get_ResetSource
+0102272_R_MAIN_UserInit
+0102A5E_R_PORT_Create
+0102B1C_R_SAU0_Create
+0102952_R_Systeminit
+0102AFA_R_TAU0_Channel0_Start
+0102B0B_R_TAU0_Channel0_Stop
+0102A8A_R_TAU0_Create
+0102B2C_R_UART0_Create
+0102BF2_R_UART0_Receive
+0102C18_R_UART0_Send
+0102BA6_R_UART0_Start
+0102BD1_R_UART0_Stop
+0102A76_R_WDT_Create
+0102A86_R_WDT_Restart
+0103315_Screen_Init
+0103547_Screen_SetChargeEfficiency
+01033A9_Screen_SetPhoneExistFlag
+01033EF_Screen_SetPhoneNotExist
+01034B4_Screen_SetPhonePAPower
+0103421_Screen_SetPhoneRPPower
+0103325_Screen_SetProtectFlag
+01024D5_UartQueuPush
+01024CD_UartQueueInit
+0102514_UartQueueLength
+01024F2_UartQueuePop
+010257D_Uart_AvailableBytes
+010251E_Uart_Init
+010253C_Uart_Read
+0102526_Uart_Write
+02FE18E_chargeMode
 02FDF96_errno
-010109E_exit
+0100848_exit
+02FE162_g_WireLessChargerParam
+02FE12E_g_requestIdx
 0102020_g_rxfifo0_use_mode
 0102021_g_rxfifo1_use_mode
 0102008_g_rxrule_table
@@ -108,25 +160,29 @@
 02FE0C2_g_uart0_rx_length
 02FE0BC_g_uart0_tx_count
 02FDFBA_g_uartRxQueue
-02FE0C6_g_uartRxQueueHead
-02FE0C8_g_uartRxQueueTail
+02FE190_g_uartRxQueueHead
+02FE192_g_uartRxQueueTail
 02FE0BE_gp_uart0_rx_address
 02FE0BA_gp_uart0_tx_address
-01006F0_hdwinit
-01002AE_main
-01010BA_memcpy
-01010BA_memcpy_n
-01010D4_memset
-01010D4_memset_n
-010044C_period_query_user
-010099B_putchar
-010105A_stkinit
-01003A5_tk_can_send
-010102F_tk_v0s_error
-010103B_tk_v0s_ledinvert
-0100FE9_tk_v0s_ledout
-0100FC0_tk_v0s_start
-0100414_tk_v0t_drvinit
+01029AB_hdwinit
+0102024_main
+0100406_matherr
+0100864_memcpy
+0100864_memcpy_n
+010087E_memset
+010087E_memset_n
+010233E_period_query_user
+02FE18D_phoneBrand
+02FE18C_protectFlag
+0102C56_putchar
+02FE132_requestList
+0100804_stkinit
+0102297_tk_can_send
+01032EA_tk_v0s_error
+01032F6_tk_v0s_ledinvert
+01032A4_tk_v0s_ledout
+010327B_tk_v0s_start
+0102306_tk_v0t_drvinit
 02FE0C4_uwCpuTick
 ;FF     @cstart
 ;FF     r_main
@@ -138,22 +194,42 @@
 ;FF     r_cg_port_user
 ;FF     r_cg_wdt
 ;FF     r_cg_wdt_user
-<01001B8_r_wdt_interrupt
+<0100640_r_wdt_interrupt
 ;FF     r_cg_timer
 ;FF     r_cg_timer_user
-<01001BA_r_tau0_channel0_interrupt
+<0100642_r_tau0_channel0_interrupt
 ;FF     r_cg_serial
 ;FF     r_cg_serial_user
-<0100997_r_uart0_callback_error
-0100991_r_uart0_callback_receiveend
-0100996_r_uart0_callback_sendend
-0100992_r_uart0_callback_softwareoverrun
-01001EA_r_uart0_interrupt_receive
-010026A_r_uart0_interrupt_send
+<0102C52_r_uart0_callback_error
+0102C4C_r_uart0_callback_receiveend
+0102C51_r_uart0_callback_sendend
+0102C4D_r_uart0_callback_softwareoverrun
+0100672_r_uart0_interrupt_receive
+01006F2_r_uart0_interrupt_send
 ;FF     r_rl78_can_drv
 ;FF     tk_sample_drv_cfg
 ;FF     HDL_CPU_Time
 ;FF     tk_funcs
+;FF     Screen
+<02FE194_SCREEN_CAN_ID
+;FF     ccan
+;FF     CPSQ8100
+<01035DA_CPSQ8100_CalculateChecksum
+02FE106_g_cpsq8100_body_buffer
+02FE19B_g_cpsq8100_response_result
+02FE0E6_g_cpsq8100_rx_buffer
+02FE19A_g_cpsq8100_state
+02FE0C6_g_cpsq8100_tx_buffer
+02FE196_g_last_request_time
+02FE1A0_i
+02FE1A8_last_available_bytes
+02FE1AC_last_received_bytes_num_change_time
+02FE19C_readLen
+02FE1A4_rev_stage
+02FE126_rxHeader
+;FF     @lmul
+;FF     @ladd
+;FF     @lsub
 ;FF     @lursh
 ;FF     @lband
 ;FF     @SEGREG
@@ -162,6 +238,14 @@
 ;FF     exit
 ;FF     memcpy_n
 ;FF     memset_n
+;FF     m_fmul
+;FF     m_fcom1
+;FF     m_fcom5
+;FF     m_fcom6
+;FF     m_fdiv
+;FF     m_ftols
+;FF     m_ftolu
+;FF     m_lutof
 ;FF     @rom
 =
 

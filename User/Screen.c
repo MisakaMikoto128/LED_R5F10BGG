@@ -50,9 +50,9 @@ void Screen_SetProtectFlag(uint8_t flag)
 /**
  * @brief
  *
- * @param batteryLevel 0-100ï¼Œç¤ºä¾‹æš‚æ—¶å¤§äº0æœ‰åŠ¨ç”»ï¼Œç­‰äº0æ— åŠ¨ç”»
+ * @param batteryLevel 0-100£¬Ê¾ÀıÔİÊ±´óÓÚ0ÓĞ¶¯»­£¬µÈÓÚ0ÎŞ¶¯»­
  * @param phoneBrand
- * @param chargeMode 0 æ™®é€šå¿«å…… 1 è¶…çº§å¿«å……
+ * @param chargeMode 0 ÆÕÍ¨¿ì³ä 1 ³¬¼¶¿ì³ä
  */
 void Screen_SetPhoneExistFlag(uint8_t batteryLevel, uint8_t phoneBrand, uint8_t chargeMode)
 {
@@ -86,7 +86,7 @@ void Screen_SetPhoneNotExist()
 /**
  * @brief
  *
- * @param power å•ä½mW
+ * @param power µ¥Î»mW
  */
 void Screen_SetPhoneRPPower(uint32_t power)
 {
@@ -108,7 +108,7 @@ void Screen_SetPhoneRPPower(uint32_t power)
 /**
  * @brief
  *
- * @param power å•ä½mW
+ * @param power µ¥Î»mW
  */
 void Screen_SetPhonePAPower(uint32_t power)
 {
@@ -130,7 +130,7 @@ void Screen_SetPhonePAPower(uint32_t power)
 /**
  * @brief
  *
- * @param efficiency å•ä½1%*1000
+ * @param efficiency µ¥Î»1%*1000
  */
 void Screen_SetChargeEfficiency(uint32_t efficiency)
 {

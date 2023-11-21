@@ -51,9 +51,88 @@ Includes
 #include "HDL_Uart.h"
 #include "ccan.h"
 #include "CPSQ8100.h"
+#include "Screen.h"
 
 void tk_v0t_drvinit(void);
 uint8_t period_query_user(PeriodREC_t *period_recorder, PeriodREC_t period);
+void CPSQ8100_Config();
+uint32_t g_requestIdx = 0;
+
+struct tagCPSQ8100_Request
+{
+    uint16_t regAddr;
+    uint16_t dataSize;
+};
+
+struct tagCPSQ8100_Request requestList[] = {
+    {CPSQ8100_REG_BATTERY_LEVEL, 0x0001},
+    {CPSQ8100_REG_STATUS_CHARGE, 0x0004},
+    {RP_VAL, 0x0004},
+    {RP_POWER, 0x0004},
+    {PA_POWER, 0x0004},
+    {PLOSS_VAL, 0x0002},
+    {Q_REF, 0x0002},
+    // {QR_VAL, 0x0001},
+    // {QM_VAL, 0x0001},
+    {FOD_CNT, 0x0001},
+    //{FUNC_EN, 0x0004},
+    // {COIL_EN, 0x0004},
+    {POWER_LIMIT, 0x0004},
+    //{OVP_UVP_THRSH, 0x0004},
+    //{OTP_THRSH, 0x0004},
+    //{OTHER_PROTECT_THRSH, 0x0004},
+    // {BIGMETAL_THRSH, 0x0004},
+    // {EPP_Q_FOD_THRSH, 0x0004},
+    // {MISC_CONFIG, 0x0004},
+    {CONFIG_META2, 0x0004},
+    {ADC_TEMP1, 0x0002},
+    {ADC_TEMP2, 0x0002},
+    //    {ADC_VPA1, 0x0002},
+    //    {ADC_IPA1, 0x0002},
+    //    {ADC_VPK1, 0x0002},
+
+    //    {CURR_Q1_VALUE, 0x0004},
+    //    {CURR_Q2_VALUE, 0x0004},
+    //    {CURR_Q3_VALUE, 0x0004},
+};
+
+struct WireLessChargerParam
+{
+    uint32_t RP_VAL_;
+    uint32_t RP_POWER_;
+    uint32_t PA_POWER_;
+    uint16_t PLOSS_VAL_;
+    uint16_t Q_REF_;
+    uint8_t TX_CHARGING;
+    uint8_t RX_NOT_CENTER;
+    uint8_t ENTER_HUAWEI;
+    uint8_t ENTER_XIAOMI;
+    uint8_t ENTER_OPPO;
+    uint8_t FIND_RX;
+    uint8_t CHARGE_FULL;
+    uint8_t EPP_CALI_FAIL;
+    uint8_t CTRL_REMOVE;
+    uint8_t REQUST_EN_MOS;
+    uint8_t REQUST_DIS_MOS;
+    uint8_t WORK_COIL;
+    uint8_t QI_STATE;
+
+    uint8_t OPP_LIMIT;
+    uint8_t OCP_LIMIT;
+    uint8_t OVPK_LIMIT;
+    uint8_t BatteryLevel_;
+
+    uint16_t NTC1;
+    uint16_t NTC2;
+
+    uint32_t Efficiency;
+};
+
+struct WireLessChargerParam g_WireLessChargerParam = {0};
+uint8_t protectFlag = 0;
+uint8_t phoneBrand = 0;
+uint8_t chargeMode = 0;
+
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 
@@ -82,9 +161,15 @@ void main(void)
     uint32_t comReadLen = 0;
     R_MAIN_UserInit();
     /* Start user code. Do not edit comment generated here */
+
+    HDL_CPU_Time_Init();
+
     CAN_Init();
     Uart_Init(COM1, 115200, 8, 1, 0);
-	
+
+    CPSQ8100_Init();
+    Screen_Init(0x02);
+    CPSQ8100_Config();
     while (1U)
     {
         // if (period_query_user(&sec_1, 500) != 0)
@@ -108,7 +193,7 @@ void main(void)
 
         if (CAN_Read(&rxHeader) == HAL_OK)
         {
- 		P8 .4 = 1;
+            P8.4 = 1;
             CAN_Write(&txHeader, rxHeader.Data);
         }
 
@@ -118,20 +203,73 @@ void main(void)
             txHeader.Identifier = 0x123;
             txHeader.IdType = FDCAN_STANDARD_ID;
             txHeader.TxFrameType = FDCAN_DATA_FRAME;
-            CAN_Write(&txHeader, (uint8_t*)"Ya Ya!");
+            CAN_Write(&txHeader, (uint8_t *)"Ya Ya!");
         }
 
         if (period_query_user(&sec_2, 2000) != 0)
         {
-            P8 .4 = 0;
+            P8.4 = 0;
         }
 
-        if(Uart_AvailableBytes(COM1) > 4)
+        if (Uart_AvailableBytes(COM1) > 4)
         {
             comReadLen = Uart_Read(COM1, rxData, 64);
             Uart_Write(COM1, rxData, comReadLen);
         }
-        
+
+        if (CPSQ8100_IsIdle())
+        {
+            if (g_requestIdx < sizeof(requestList) / sizeof(struct tagCPSQ8100_Request))
+            {
+                CPSQ8100_ReadRegisterRequest(requestList[g_requestIdx].regAddr, requestList[g_requestIdx].dataSize);
+            }
+            else
+            {
+                g_requestIdx = 0;
+
+                if (g_WireLessChargerParam.FIND_RX == 0)
+                {
+                    Screen_SetPhoneNotExist();
+                }
+                else
+                {
+                    phoneBrand = g_WireLessChargerParam.ENTER_HUAWEI != 0 ? SCREEN_PHONE_BRAND_HUAWEI : SCREEN_PHONE_BRAND_OTHER;
+                    phoneBrand = g_WireLessChargerParam.ENTER_XIAOMI != 0 ? SCREEN_PHONE_BRAND_XIAOMI : phoneBrand;
+                    phoneBrand = g_WireLessChargerParam.ENTER_OPPO != 0 ? SCREEN_PHONE_BRAND_OPPO : phoneBrand;
+
+                    chargeMode = phoneBrand == SCREEN_PHONE_BRAND_OTHER ? SEREEN_CHARGER_MODE_NORMAL : SEREEN_CHARGER_MODE_SUPER;
+
+                    Screen_SetPhoneExistFlag(100, phoneBrand, chargeMode);
+                    Screen_SetPhonePAPower(g_WireLessChargerParam.PA_POWER_);
+                    Screen_SetPhoneRPPower(g_WireLessChargerParam.RP_POWER_);
+
+                    if (g_WireLessChargerParam.PA_POWER_ > 0)
+                    {
+                        g_WireLessChargerParam.Efficiency = g_WireLessChargerParam.RP_POWER_ * 1000.0f / g_WireLessChargerParam.PA_POWER_;
+                        Screen_SetChargeEfficiency(g_WireLessChargerParam.Efficiency * 100);
+                    }
+
+                    protectFlag = 0;
+                    protectFlag |= (g_WireLessChargerParam.OPP_LIMIT != 0 ? SEREEN_OP_PROTECT_FLAG : 0);
+                    protectFlag |= (g_WireLessChargerParam.OCP_LIMIT != 0 ? SEREEN_OC_PROTECT_FLAG : 0);
+                    protectFlag |= (g_WireLessChargerParam.OVPK_LIMIT != 0 ? SEREEN_OV_PROTECT_FLAG : 0);
+                    protectFlag |= (g_WireLessChargerParam.EPP_CALI_FAIL != 0 ? SEREEN_FOD_PROTECT_FLAG : 0);
+
+                    //%60也判断为有异物
+                    if (g_WireLessChargerParam.Efficiency < 600)
+                    {
+                        protectFlag |= SEREEN_FOD_PROTECT_FLAG;
+                    }
+
+                    Screen_SetProtectFlag(protectFlag);
+                }
+            }
+        }
+
+        if (CAN_Read(&rxHeader) == HAL_OK)
+        {
+        }
+        CPSQ8100_Poll();
         R_WDT_Restart();
     }
     /* End user code. Do not edit comment generated here */
@@ -388,6 +526,181 @@ uint32_t Uart_Read(COMID_t comId, uint8_t *pBuf, uint32_t uiLen)
 uint32_t Uart_AvailableBytes(COMID_t comId)
 {
     return UartQueueLength();
+}
+
+void CPSQ8100_Config()
+{
+    CPSQ8100_WriteRegister_Uint32(FUNC_EN, 0x0007CF7A);
+    CPSQ8100_WriteRegister_Uint32(COIL_EN, 0x00FFFFFF);
+    // CPSQ8100_WriteRegister_Uint32(OTHER_PROTECT_THRSH, 0xFFFFFF01);
+    // CPSQ8100_WriteRegister_Uint32(EPP_Q_FOD_THRSH, 0x58504B1E);
+    CPSQ8100_WriteRegister_Uint32(CONFIG_META2, 0xAABBCC01);
+    // 华为HAUWEI_PLOSS_FOD_PARAM
+    CPSQ8100_WriteRegister_Uint32(HAUWEI_PLOSS_FOD_PARAM, HAUWEI_PLOSS_FOD_PARAM_VALUE(250, 65000, 120));
+    CPSQ8100_WriteRegister_Uint16(WORK_VPA_RANGE_MAX, 0xB580);
+}
+
+void CPSQ8100_RecevieCallback(struct tagCPSQ8100_RxHeader *pHeader)
+{
+    // for CPSQ8100_CMD_MCU_RESET
+
+    // for CPSQ8100_REG_W_CMD
+
+    // for CPSQ8100_REG_R_CMD
+    uint32_t regAddr = 0;
+    uint32_t dataSize = 0;
+    uint32_t rRegU32 = 0;
+    uint32_t rRegU16 = 0;
+    uint32_t rRegU8 = 0;
+    int32_t rRegI32 = 0;
+    int32_t rRegI16 = 0;
+    int32_t rRegI8 = 0;
+
+    if (pHeader->subtype != CPSQ8100_SUBTYPE_ACK)
+    {
+        return;
+    }
+
+    switch (pHeader->cmd)
+    {
+    case CPSQ8100_CMD_MCU_RESET:
+        break;
+    case CPSQ8100_REG_W_CMD:
+        break;
+    case CPSQ8100_REG_R_CMD:
+    {
+        g_requestIdx++;
+
+        regAddr = pHeader->pBody[0] + (pHeader->pBody[1] << 8);
+        dataSize = pHeader->pBody[2] + (pHeader->pBody[3] << 8);
+        if (dataSize == 4)
+        {
+            rRegU32 = pHeader->pBody[4] + (pHeader->pBody[5] << 8) + (pHeader->pBody[6] << 16) + (pHeader->pBody[7] << 24);
+            rRegI32 = (int32_t)rRegU32;
+        }
+        else if (dataSize == 2)
+        {
+            rRegU16 = pHeader->pBody[4] + (pHeader->pBody[5] << 8);
+            rRegI16 = (int16_t)rRegU16;
+        }
+        else if (dataSize == 1)
+        {
+            rRegU8 = pHeader->pBody[4];
+            rRegI8 = (int8_t)rRegU8;
+        }
+
+        switch (regAddr)
+        {
+        case CPSQ8100_REG_BATTERY_LEVEL:
+        {
+            g_WireLessChargerParam.BatteryLevel_ = rRegU8;
+        }
+        break;
+        case CPSQ8100_REG_STATUS_CHARGE:
+        {
+            /*
+            bits Label
+
+            0	TX_CHARGING
+                1	RX_NOT_CENTER
+                2	ENTER_HUAWEI
+                3	ENTER_XIAOMI
+                4	ENTER_OPPO
+                5	FIND_RX
+                6	CHARGE_FULL
+                7	EPP_CALI_FAIL
+                8	CTRL_REMOVE
+                9	REQUST_EN_MOS
+                10	REQUST_DIS_MOS
+                15:11	WORK_COIL
+                23:16	QI_STATE
+                31:24	CURR_ERRCODE
+                    */
+            g_WireLessChargerParam.TX_CHARGING = (rRegU32 >> 0) & 0x01;
+            g_WireLessChargerParam.RX_NOT_CENTER = (rRegU32 >> 1) & 0x01;
+            g_WireLessChargerParam.ENTER_HUAWEI = (rRegU32 >> 2) & 0x01;
+            g_WireLessChargerParam.ENTER_XIAOMI = (rRegU32 >> 3) & 0x01;
+            g_WireLessChargerParam.ENTER_OPPO = (rRegU32 >> 4) & 0x01;
+            g_WireLessChargerParam.FIND_RX = (rRegU32 >> 5) & 0x01;
+            g_WireLessChargerParam.CHARGE_FULL = (rRegU32 >> 6) & 0x01;
+            g_WireLessChargerParam.EPP_CALI_FAIL = (rRegU32 >> 7) & 0x01;
+            g_WireLessChargerParam.CTRL_REMOVE = (rRegU32 >> 8) & 0x01;
+            g_WireLessChargerParam.REQUST_EN_MOS = (rRegU32 >> 9) & 0x01;
+            g_WireLessChargerParam.REQUST_DIS_MOS = (rRegU32 >> 10) & 0x01;
+            g_WireLessChargerParam.WORK_COIL = (rRegU32 >> 11) & 0x1F;
+            g_WireLessChargerParam.QI_STATE = (rRegU32 >> 16) & 0xFF;
+        }
+        break;
+        case RP_VAL:
+        {
+            g_WireLessChargerParam.RP_VAL_ = rRegU32;
+        }
+        break;
+        case RP_POWER:
+        {
+            g_WireLessChargerParam.RP_POWER_ = rRegU32;
+        }
+        break;
+        case PA_POWER:
+        {
+            g_WireLessChargerParam.PA_POWER_ = rRegU32;
+        }
+        break;
+        case PLOSS_VAL:
+        {
+            g_WireLessChargerParam.PLOSS_VAL_ = rRegI16;
+        }
+        break;
+        case Q_REF:
+        {
+            g_WireLessChargerParam.Q_REF_ = rRegU16;
+        }
+        break;
+        case POWER_LIMIT:
+        {
+            /*
+            0	OPP_LIMIT
+            1	OCP_LIMIT
+            2	OVPK_LIMIT
+            31:3	Reserved
+            */
+            g_WireLessChargerParam.OPP_LIMIT = (rRegU32 >> 0) & 0x01;
+            g_WireLessChargerParam.OCP_LIMIT = (rRegU32 >> 1) & 0x01;
+            g_WireLessChargerParam.OVPK_LIMIT = (rRegU32 >> 2) & 0x01;
+        }
+        break;
+
+        case CONFIG_META2:
+        {
+            if ((rRegU32 & 0xFFFFFF00) != 0xAABBCC00)
+            {
+                CPSQ8100_Config();
+            }
+        }
+        case ADC_TEMP1:
+        {
+            g_WireLessChargerParam.NTC1 = rRegU16;
+        }
+        break;
+        case ADC_TEMP2:
+        {
+            g_WireLessChargerParam.NTC2 = rRegU16;
+        }
+        break;
+        default:
+            break;
+        }
+    }
+    break;
+    case CPSQ8100_CMD_STATUS_REPORT:
+        break;
+    case CPSQ8100_CMD_Q_CALIBRATION:
+        break;
+    case CPSQ8100_CMD_FLASH_READ:
+        break;
+    default:
+        break;
+    }
 }
 
 /* End user code. Do not edit comment generated here */
