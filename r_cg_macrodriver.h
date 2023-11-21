@@ -23,7 +23,7 @@
 * Device(s)    : R5F10BGG
 * Tool-Chain   : CA78K0R
 * Description  : This file implements general head file.
-* Creation Date: 2023/11/10
+* Creation Date: 2023/11/21
 ***********************************************************************************************************************/
 
 #ifndef STATUS_H

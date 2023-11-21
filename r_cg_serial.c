@@ -23,7 +23,7 @@
 * Device(s)    : R5F10BGG
 * Tool-Chain   : CA78K0R
 * Description  : This file implements device driver for Serial module.
-* Creation Date: 2023/11/10
+* Creation Date: 2023/11/21
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -65,7 +65,7 @@ void R_SAU0_Create(void)
     NOP();
     NOP();
     NOP();
-    SPS0 = _0002_SAU_CK00_FCLK_2 | _0000_SAU_CK01_FCLK_0;
+    SPS0 = _0000_SAU_CK00_FCLK_0 | _0000_SAU_CK01_FCLK_0;
     R_UART0_Create();
 }
 
@@ -77,8 +77,7 @@ void R_SAU0_Create(void)
 ***********************************************************************************************************************/
 void R_UART0_Create(void)
 {
-    /* UART0 initial setting */
-    ST0 |= _0001_SAU_CH0_STOP_TRG_ON;    /* UART0 transmit disable */
+    ST0 |= _0002_SAU_CH1_STOP_TRG_ON | _0001_SAU_CH0_STOP_TRG_ON;    /* disable UART0 receive and transmit */
     STMK0 = 1U;    /* disable INTST0 interrupt */
     STIF0 = 0U;    /* clear INTST0 interrupt flag */
     SRMK0 = 1U;    /* disable INTSR0 interrupt */
@@ -86,13 +85,24 @@ void R_UART0_Create(void)
     /* Set INTST0 low priority */
     STPR10 = 1U;
     STPR00 = 1U;
+    /* Set INTSR0 low priority */
+    SRPR10 = 1U;
+    SRPR00 = 1U;
     SMR00 = _0020_SAU_SMRMN_INITIALVALUE | _0000_SAU_CLOCK_SELECT_CK00 | _0000_SAU_TRIGGER_SOFTWARE |
             _0002_SAU_MODE_UART | _0000_SAU_TRANSFER_END;
     SCR00 = _8000_SAU_TRANSMISSION | _0000_SAU_PARITY_NONE | _0080_SAU_LSB | _0010_SAU_STOP_1 | _0007_SAU_LENGTH_8;
-    SDR00 = _CE00_UART0_TRANSMIT_DIVISOR;
+    SDR00 = _4400_UART0_TRANSMIT_DIVISOR;
+    NFEN0 |= _01_SAU_RXD0_FILTER_ON;
+    SIR01 = _0004_SAU_SIRMN_FECTMN | _0002_SAU_SIRMN_PECTMN | _0001_SAU_SIRMN_OVCTMN;    /* clear error flag */
+    SMR01 = _0020_SAU_SMRMN_INITIALVALUE | _0000_SAU_CLOCK_SELECT_CK00 | _0100_SAU_TRIGGER_RXD | _0000_SAU_EDGE_FALL |
+            _0002_SAU_MODE_UART | _0000_SAU_TRANSFER_END;
+    SCR01 = _4000_SAU_RECEPTION | _0000_SAU_PARITY_NONE | _0080_SAU_LSB | _0010_SAU_STOP_1 | _0007_SAU_LENGTH_8;
+    SDR01 = _4400_UART0_RECEIVE_DIVISOR;
     SO0 |= _0001_SAU_CH0_DATA_OUTPUT_1;
     SOL0 |= _0000_SAU_CHANNEL0_NORMAL;    /* output level normal */
     SOE0 |= _0001_SAU_CH0_OUTPUT_ENABLE;    /* enable UART0 output */
+    /* Set RxD0 pin */
+    PM1 |= 0x40U;
     /* Set TxD0 pin */
     P1 |= 0x20U;
     PM1 &= 0xDFU;
@@ -108,9 +118,11 @@ void R_UART0_Start(void)
 {
     SO0 |= _0001_SAU_CH0_DATA_OUTPUT_1;    /* output level normal */
     SOE0 |= _0001_SAU_CH0_OUTPUT_ENABLE;    /* enable UART0 output */
-    SS0 |= _0001_SAU_CH0_START_TRG_ON;    /* enable UART0 transmit */
+    SS0 |= _0002_SAU_CH1_START_TRG_ON | _0001_SAU_CH0_START_TRG_ON;    /* enable UART0 receive and transmit */
     STIF0 = 0U;    /* clear INTST0 interrupt flag */
+    SRIF0 = 0U;    /* clear INTSR0 interrupt flag */
     STMK0 = 0U;    /* enable INTST0 interrupt */
+    SRMK0 = 0U;    /* enable INTSR0 interrupt */
 }
 
 /***********************************************************************************************************************
@@ -122,9 +134,39 @@ void R_UART0_Start(void)
 void R_UART0_Stop(void)
 {
     STMK0 = 1U;    /* disable INTST0 interrupt */
-    ST0 |= _0001_SAU_CH0_STOP_TRG_ON;    /* disable UART0 transmit */
+    SRMK0 = 1U;    /* disable INTSR0 interrupt */
+    ST0 |= _0002_SAU_CH1_STOP_TRG_ON | _0001_SAU_CH0_STOP_TRG_ON;    /* disable UART0 receive and transmit */
     SOE0 &= ~_0001_SAU_CH0_OUTPUT_ENABLE;    /* disable UART0 output */
     STIF0 = 0U;    /* clear INTST0 interrupt flag */
+    SRIF0 = 0U;    /* clear INTSR0 interrupt flag */
+}
+
+/***********************************************************************************************************************
+* Function Name: R_UART0_Receive
+* Description  : This function receives UART0 data.
+* Arguments    : rx_buf -
+*                    receive buffer pointer
+*                rx_num -
+*                    buffer size
+* Return Value : status -
+*                    MD_OK or MD_ARGERROR
+***********************************************************************************************************************/
+MD_STATUS R_UART0_Receive(uint8_t * const rx_buf, uint16_t rx_num)
+{
+    MD_STATUS status = MD_OK;
+
+    if (rx_num < 1U)
+    {
+        status = MD_ARGERROR;
+    }
+    else
+    {
+        g_uart0_rx_count = 0U;
+        g_uart0_rx_length = rx_num;
+        gp_uart0_rx_address = rx_buf;
+    }
+
+    return (status);
 }
 
 /***********************************************************************************************************************

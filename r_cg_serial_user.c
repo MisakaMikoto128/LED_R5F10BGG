@@ -23,13 +23,14 @@
 * Device(s)    : R5F10BGG
 * Tool-Chain   : CA78K0R
 * Description  : This file implements device driver for Serial module.
-* Creation Date: 2023/11/10
+* Creation Date: 2023/11/21
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
 Pragma directive
 ***********************************************************************************************************************/
 #pragma interrupt INTST0 r_uart0_interrupt_send
+#pragma interrupt INTSR0 r_uart0_interrupt_receive
 /* Start user code for pragma. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 
@@ -54,6 +55,44 @@ extern volatile uint16_t  g_uart0_rx_length;           /* uart0 receive data len
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
+* Function Name: r_uart0_interrupt_receive
+* Description  : This function is INTSR0 interrupt service routine.
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+__interrupt static void r_uart0_interrupt_receive(void)
+{
+    volatile uint8_t rx_data;
+    volatile uint8_t err_type;
+    
+    err_type = (uint8_t)(SSR01 & 0x0007U);
+    SIR01 = (uint16_t)err_type;
+    
+    if (err_type != 0U)
+    {
+        r_uart0_callback_error(err_type);
+    }
+    
+    rx_data = SDR01L;
+
+    if (g_uart0_rx_length > g_uart0_rx_count)
+    {
+        *gp_uart0_rx_address = rx_data;
+        gp_uart0_rx_address++;
+        g_uart0_rx_count++;	
+
+        if (g_uart0_rx_length == g_uart0_rx_count)
+        {
+            r_uart0_callback_receiveend();
+        }
+    }
+    else
+    {
+        r_uart0_callback_softwareoverrun(rx_data);
+    }
+}
+
+/***********************************************************************************************************************
 * Function Name: r_uart0_interrupt_send
 * Description  : This function is INTST0 interrupt service routine.
 * Arguments    : None
@@ -74,12 +113,50 @@ __interrupt static void r_uart0_interrupt_send(void)
 }
 
 /***********************************************************************************************************************
+* Function Name: r_uart0_callback_receiveend
+* Description  : This function is a callback function when UART0 finishes reception.
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+static void r_uart0_callback_receiveend(void)
+{
+    /* Start user code. Do not edit comment generated here */
+    /* End user code. Do not edit comment generated here */
+}
+
+/***********************************************************************************************************************
+* Function Name: r_uart0_callback_softwareoverrun
+* Description  : This function is a callback function when UART0 receives an overflow data.
+* Arguments    : rx_data -
+*                    receive data
+* Return Value : None
+***********************************************************************************************************************/
+static void r_uart0_callback_softwareoverrun(uint16_t rx_data)
+{
+    /* Start user code. Do not edit comment generated here */
+    /* End user code. Do not edit comment generated here */
+}
+
+/***********************************************************************************************************************
 * Function Name: r_uart0_callback_sendend
 * Description  : This function is a callback function when UART0 finishes transmission.
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
 static void r_uart0_callback_sendend(void)
+{
+    /* Start user code. Do not edit comment generated here */
+    /* End user code. Do not edit comment generated here */
+}
+
+/***********************************************************************************************************************
+* Function Name: r_uart0_callback_error
+* Description  : This function is a callback function when UART0 reception error occurs.
+* Arguments    : err_type -
+*                    error type value
+* Return Value : None
+***********************************************************************************************************************/
+static void r_uart0_callback_error(uint8_t err_type)
 {
     /* Start user code. Do not edit comment generated here */
     /* End user code. Do not edit comment generated here */
