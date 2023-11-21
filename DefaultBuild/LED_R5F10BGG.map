@@ -1,12 +1,12 @@
 
 
 
-78K0R Linker W1.80                            Date:21 Nov 2023 Page:   1
+78K0R Linker W1.80                            Date:22 Nov 2023 Page:   1
 
-Command:   -yD:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device\
+Command:   -yC:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device\
            RL78\Devicefile -_msgoff -oDefaultBuild\LED_R5F10BGG.lmf -gi0
            0000000000000000000h -go04h,1FE00h,0 -gb0FFFFEAH -mi0 -s -pDe
-           faultBuild\LED_R5F10BGG.map D:\Program Files (x86)\Renesas El
+           faultBuild\LED_R5F10BGG.map C:\Program Files (x86)\Renesas El
            ectronics\CS+\CACX\CA78K0R\V1.72\lib78k0r\s0rll.rel DefaultBu
            ild\r_main.rel DefaultBuild\r_systeminit.rel DefaultBuild\r_c
            g_cgc.rel DefaultBuild\r_cg_cgc_user.rel DefaultBuild\r_cg_po
@@ -15,7 +15,7 @@ Command:   -yD:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device\
            l DefaultBuild\r_cg_timer_user.rel DefaultBuild\r_cg_serial.r
            el DefaultBuild\r_cg_serial_user.rel DefaultBuild\r_rl78_can_
            drv.rel DefaultBuild\tk_sample_drv_cfg.rel DefaultBuild\HDL_C
-           PU_Time.rel DefaultBuild\tk_funcs.rel -bcl78m -bcl78mf -iD:\P
+           PU_Time.rel DefaultBuild\tk_funcs.rel -bcl78m -bcl78mf -iC:\P
            rogram Files (x86)\Renesas Electronics\CS+\CACX\CA78K0R\V1.72
            \lib78k0r
 Para-file:
@@ -28,8 +28,8 @@ Directive:
 *** Link information ***
 
     44 output segment(s)
- 1506H byte(s) real data
-  1411 symbol(s) defined
+ 1061H byte(s) real data
+  1403 symbol(s) defined
 
 
 *** Memory map ***
@@ -290,73 +290,72 @@ Directive:
                   @@BASE   HDL_CPU_Time
                                       002AEH    00000H
                   @@BASE   tk_funcs   002AEH    00000H
-         @@CODEL                      002AEH    00DCAH  CSEG
-                  @@CODEL  r_main     002AEH    00407H
+         @@CODEL                      002AEH    00DACH  CSEG
+                  @@CODEL  r_main     002AEH    003E9H
                   @@CODEL  r_systeminit
-                                      006B5H    00061H
-                  @@CODEL  r_cg_cgc   00716H    000A6H
+                                      00697H    00061H
+                  @@CODEL  r_cg_cgc   006F8H    000A6H
                   @@CODEL  r_cg_cgc_user
-                                      007BCH    00005H
+                                      0079EH    00005H
                   @@CODEL  r_cg_port
-                                      007C1H    00018H
+                                      007A3H    00018H
                   @@CODEL  r_cg_port_user
-                                      007D9H    00000H
-                  @@CODEL  r_cg_wdt   007D9H    00014H
+                                      007BBH    00000H
+                  @@CODEL  r_cg_wdt   007BBH    00014H
                   @@CODEL  r_cg_wdt_user
-                                      007EDH    00000H
+                                      007CFH    00000H
                   @@CODEL  r_cg_timer
-                                      007EDH    00092H
+                                      007CFH    00092H
                   @@CODEL  r_cg_timer_user
-                                      0087FH    00000H
+                                      00861H    00000H
                   @@CODEL  r_cg_serial
-                                      0087FH    00130H
+                                      00861H    00130H
                   @@CODEL  r_cg_serial_user
-                                      009AFH    00024H
+                                      00991H    00024H
                   @@CODEL  r_rl78_can_drv
-                                      009D3H    005DBH
+                                      009B5H    005DBH
                   @@CODEL  tk_sample_drv_cfg
-                                      00FAEH    00000H
+                                      00F90H    00000H
                   @@CODEL  HDL_CPU_Time
-                                      00FAEH    00030H
-                  @@CODEL  tk_funcs   00FDEH    0009AH
-         @@LCODEL                     01078H    0050CH  CSEG
-                  @@LCODEL @stkinit   01078H    00044H
-                  @@LCODEL exit       010BCH    0001CH
-                  @@LCODEL memcpy_n   010D8H    0001AH
-                  @@LCODEL memset_n   010F2H    00019H
-                  @@LCODEL printf_n   0110BH    00479H
-* gap *                               01584H    00A7CH
-         @@CNST                       02000H    00032H  CSEG MIRRORP
+                                      00F90H    00030H
+                  @@CODEL  tk_funcs   00FC0H    0009AH
+         @@LCODEL                     0105AH    00093H  CSEG
+                  @@LCODEL @stkinit   0105AH    00044H
+                  @@LCODEL exit       0109EH    0001CH
+                  @@LCODEL memcpy_n   010BAH    0001AH
+                  @@LCODEL memset_n   010D4H    00019H
+* gap *                               010EDH    00F13H
+         @@CNST                       02000H    00024H  CSEG MIRRORP
                   @@CNST   @cstart    02000H    00000H
-                  @@CNST   r_main     02000H    00016H
+                  @@CNST   r_main     02000H    00008H
                   @@CNST   r_systeminit
-                                      02016H    00000H
-                  @@CNST   r_cg_cgc   02016H    00000H
+                                      02008H    00000H
+                  @@CNST   r_cg_cgc   02008H    00000H
                   @@CNST   r_cg_cgc_user
-                                      02016H    00000H
+                                      02008H    00000H
                   @@CNST   r_cg_port
-                                      02016H    00000H
+                                      02008H    00000H
                   @@CNST   r_cg_port_user
-                                      02016H    00000H
-                  @@CNST   r_cg_wdt   02016H    00000H
+                                      02008H    00000H
+                  @@CNST   r_cg_wdt   02008H    00000H
                   @@CNST   r_cg_wdt_user
-                                      02016H    00000H
+                                      02008H    00000H
                   @@CNST   r_cg_timer
-                                      02016H    00000H
+                                      02008H    00000H
                   @@CNST   r_cg_timer_user
-                                      02016H    00000H
+                                      02008H    00000H
                   @@CNST   r_cg_serial
-                                      02016H    00000H
+                                      02008H    00000H
                   @@CNST   r_cg_serial_user
-                                      02016H    00000H
+                                      02008H    00000H
                   @@CNST   r_rl78_can_drv
-                                      02016H    00000H
+                                      02008H    00000H
                   @@CNST   tk_sample_drv_cfg
-                                      02016H    0001CH
+                                      02008H    0001CH
                   @@CNST   HDL_CPU_Time
-                                      02032H    00000H
-                  @@CNST   tk_funcs   02032H    00000H
-* gap *                               02032H    0DFCEH
+                                      02024H    00000H
+                  @@CNST   tk_funcs   02024H    00000H
+* gap *                               02024H    0DFDCH
 
   MEMORY=RAM
   BASE ADDRESS=FDF00H   SIZE=02100H

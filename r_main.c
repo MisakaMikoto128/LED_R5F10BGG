@@ -84,7 +84,7 @@ void main(void)
     /* Start user code. Do not edit comment generated here */
     CAN_Init();
     Uart_Init(COM1, 115200, 8, 1, 0);
-
+	
     while (1U)
     {
         // if (period_query_user(&sec_1, 500) != 0)
@@ -108,14 +108,12 @@ void main(void)
 
         if (CAN_Read(&rxHeader) == HAL_OK)
         {
-            P8 .4 = 1;
+ 		P8 .4 = 1;
             CAN_Write(&txHeader, rxHeader.Data);
         }
 
         if (period_query_user(&sec_1, 500) != 0)
         {
-            P8 .5 = ~P8 .5;
-            Uart_Write(COM1, (uint8_t*)"Ya Ya!", 6);
             txHeader.DataLength = 3;
             txHeader.Identifier = 0x123;
             txHeader.IdType = FDCAN_STANDARD_ID;
@@ -384,7 +382,7 @@ uint32_t Uart_Read(COMID_t comId, uint8_t *pBuf, uint32_t uiLen)
             break;
         }
     }
-    return 0;
+    return ret;
 }
 
 uint32_t Uart_AvailableBytes(COMID_t comId)

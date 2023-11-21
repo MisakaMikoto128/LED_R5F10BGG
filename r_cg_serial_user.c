@@ -76,6 +76,7 @@ __interrupt static void r_uart0_interrupt_receive(void)
     
     rx_data = SDR01L;
     UartQueuPush(rx_data);
+    
     if (g_uart0_rx_length > g_uart0_rx_count)
     {
         *gp_uart0_rx_address = rx_data;

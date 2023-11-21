@@ -52,58 +52,58 @@
 0100016_@vect16
 0100018_@vect18
 010002C_@vect2c
-010049A_CAN_Init
-010055E_CAN_Read
-010049B_CAN_Write
-0100FB8_HDL_CPU_IncTick
-0100FBC_HDL_CPU_Time_DelayMs
-0100FAF_HDL_CPU_Time_GetTick
-0100FAE_HDL_CPU_Time_Init
-0100FB3_HDL_CPU_Time_ResetTick
-0100C4C_R_CAN_AbortTrm_CH0
-0100B7A_R_CAN_ChStart_CH0
-0100C5B_R_CAN_CheckTxBufResult_CH0
-010042A_R_CAN_Create
-0100B21_R_CAN_GlobalStart
-01009D3_R_CAN_Init
-0100FA8_R_CAN_ReadChStatus_CH0
-0100CE1_R_CAN_ReadRxBuffer
-0100DE0_R_CAN_ReadRxFIFO
-0100E01_R_CAN_ReadRxFIFO0
-0100E8E_R_CAN_ReadRxFIFO1
-0100F1B_R_CAN_ReadTRFIFO0_CH0
-0100C8A_R_CAN_TrmByTRFIFO0_CH0
-0100BB2_R_CAN_TrmByTxBuf_CH0
-0100716_R_CGC_Create
-01007BC_R_CGC_Get_ResetSource
-010039F_R_MAIN_UserInit
-01007C1_R_PORT_Create
-010087F_R_SAU0_Create
-01006B5_R_Systeminit
-010085D_R_TAU0_Channel0_Start
-010086E_R_TAU0_Channel0_Stop
-01007ED_R_TAU0_Create
-010088F_R_UART0_Create
-0100955_R_UART0_Receive
-010097B_R_UART0_Send
-0100909_R_UART0_Start
-0100934_R_UART0_Stop
-01007D9_R_WDT_Create
-01007E9_R_WDT_Restart
-0100602_UartQueuPush
-01005FA_UartQueueInit
-0100641_UartQueueLength
-010061F_UartQueuePop
-01006A9_Uart_AvailableBytes
-010064B_Uart_Init
-0100669_Uart_Read
-0100653_Uart_Write
+010047B_CAN_Init
+010053F_CAN_Read
+010047C_CAN_Write
+0100F9A_HDL_CPU_IncTick
+0100F9E_HDL_CPU_Time_DelayMs
+0100F91_HDL_CPU_Time_GetTick
+0100F90_HDL_CPU_Time_Init
+0100F95_HDL_CPU_Time_ResetTick
+0100C2E_R_CAN_AbortTrm_CH0
+0100B5C_R_CAN_ChStart_CH0
+0100C3D_R_CAN_CheckTxBufResult_CH0
+010040B_R_CAN_Create
+0100B03_R_CAN_GlobalStart
+01009B5_R_CAN_Init
+0100F8A_R_CAN_ReadChStatus_CH0
+0100CC3_R_CAN_ReadRxBuffer
+0100DC2_R_CAN_ReadRxFIFO
+0100DE3_R_CAN_ReadRxFIFO0
+0100E70_R_CAN_ReadRxFIFO1
+0100EFD_R_CAN_ReadTRFIFO0_CH0
+0100C6C_R_CAN_TrmByTRFIFO0_CH0
+0100B94_R_CAN_TrmByTxBuf_CH0
+01006F8_R_CGC_Create
+010079E_R_CGC_Get_ResetSource
+0100380_R_MAIN_UserInit
+01007A3_R_PORT_Create
+0100861_R_SAU0_Create
+0100697_R_Systeminit
+010083F_R_TAU0_Channel0_Start
+0100850_R_TAU0_Channel0_Stop
+01007CF_R_TAU0_Create
+0100871_R_UART0_Create
+0100937_R_UART0_Receive
+010095D_R_UART0_Send
+01008EB_R_UART0_Start
+0100916_R_UART0_Stop
+01007BB_R_WDT_Create
+01007CB_R_WDT_Restart
+01005E3_UartQueuPush
+01005DB_UartQueueInit
+0100622_UartQueueLength
+0100600_UartQueuePop
+010068B_Uart_AvailableBytes
+010062C_Uart_Init
+010064A_Uart_Read
+0100634_Uart_Write
 02FDF96_errno
-01010BC_exit
-010202E_g_rxfifo0_use_mode
-010202F_g_rxfifo1_use_mode
-0102016_g_rxrule_table
-0102030_g_trfifo_use_mode
+010109E_exit
+0102020_g_rxfifo0_use_mode
+0102021_g_rxfifo1_use_mode
+0102008_g_rxrule_table
+0102022_g_trfifo_use_mode
 02FE0C0_g_uart0_rx_count
 02FE0C2_g_uart0_rx_length
 02FE0BC_g_uart0_tx_count
@@ -112,29 +112,25 @@
 02FE0C8_g_uartRxQueueTail
 02FE0BE_gp_uart0_rx_address
 02FE0BA_gp_uart0_tx_address
-010070E_hdwinit
+01006F0_hdwinit
 01002AE_main
-01010D8_memcpy
-01010D8_memcpy_n
-01010F2_memset
-01010F2_memset_n
-010046B_period_query_user
-010110B_printf
-010110B_printf_n
-01009B9_putchar
-0101078_stkinit
-01003C4_tk_can_send
-010104D_tk_v0s_error
-0101059_tk_v0s_ledinvert
-0101007_tk_v0s_ledout
-0100FDE_tk_v0s_start
-0100433_tk_v0t_drvinit
+01010BA_memcpy
+01010BA_memcpy_n
+01010D4_memset
+01010D4_memset_n
+010044C_period_query_user
+010099B_putchar
+010105A_stkinit
+01003A5_tk_can_send
+010102F_tk_v0s_error
+010103B_tk_v0s_ledinvert
+0100FE9_tk_v0s_ledout
+0100FC0_tk_v0s_start
+0100414_tk_v0t_drvinit
 02FE0C4_uwCpuTick
 ;FF     @cstart
 ;FF     r_main
-<0102000L0003
-0102007L0010
-010200EL0011
+<0102000L0009
 ;FF     r_systeminit
 ;FF     r_cg_cgc
 ;FF     r_cg_cgc_user
@@ -148,10 +144,10 @@
 <01001BA_r_tau0_channel0_interrupt
 ;FF     r_cg_serial
 ;FF     r_cg_serial_user
-<01009B5_r_uart0_callback_error
-01009AF_r_uart0_callback_receiveend
-01009B4_r_uart0_callback_sendend
-01009B0_r_uart0_callback_softwareoverrun
+<0100997_r_uart0_callback_error
+0100991_r_uart0_callback_receiveend
+0100996_r_uart0_callback_sendend
+0100992_r_uart0_callback_softwareoverrun
 01001EA_r_uart0_interrupt_receive
 010026A_r_uart0_interrupt_send
 ;FF     r_rl78_can_drv
@@ -166,7 +162,6 @@
 ;FF     exit
 ;FF     memcpy_n
 ;FF     memset_n
-;FF     printf_n
 ;FF     @rom
 =
 
